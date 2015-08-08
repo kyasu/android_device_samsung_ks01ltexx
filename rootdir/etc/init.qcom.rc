@@ -885,6 +885,7 @@ service rfs_access /vendor/bin/rfs_access
    class core
    user system
    group system net_raw
+   ioprio rt 4
 
 on property:ro.debuggable=1
     chmod 0666 /sys/class/mhl/swing
