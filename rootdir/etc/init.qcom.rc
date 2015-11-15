@@ -227,7 +227,8 @@ on post-fs-data
     chmod 0660 /sys/class/leds/torch-sec1/brightness
     chown system camera /sys/class/leds/torch-sec1/brightness
 
-    chown system system /sys/class/sec/sec_touchkey/keypad_enable
+# Key Enabler
+    chown system radio /sys/class/sec/sec_touchkey/keypad_enable
     chmod 0660 /sys/class/sec/sec_touchkey/keypad_enable
     restorecon /sys/class/sec/sec_touchkey/keypad_enable
 
@@ -250,17 +251,17 @@ on post-fs-data
     chown system system /sys/class/input/input18/enabled
 
 # permissions for S-Pen
-    chmod 0660 /sys/class/input/input3/enabled
-    chown system system /sys/class/input/input3/enabled
-    chown system radio /sys/class/sec/sec_epen/epen_firm_update
-    chown system radio /sys/class/sec/sec_epen/epen_rotation
-    chown system radio /sys/class/sec/sec_epen/epen_hand
-    chown system radio /sys/class/sec/sec_epen/epen_reset
-    chown system radio /sys/class/sec/sec_epen/epen_reset_result
-    chown system radio /sys/class/sec/sec_epen/epen_checksum
-    chown system radio /sys/class/sec/sec_epen/epen_checksum_result
-    chown system radio /sys/class/sec/sec_epen/epen_saving_mode
-    chown system radio /sys/class/sec/sec_epen/boost_level
+    #chmod 0660 /sys/class/input/input3/enabled
+    #chown system system /sys/class/input/input3/enabled
+    #chown system radio /sys/class/sec/sec_epen/epen_firm_update
+    #chown system radio /sys/class/sec/sec_epen/epen_rotation
+    #chown system radio /sys/class/sec/sec_epen/epen_hand
+    #chown system radio /sys/class/sec/sec_epen/epen_reset
+    #chown system radio /sys/class/sec/sec_epen/epen_reset_result
+    #chown system radio /sys/class/sec/sec_epen/epen_checksum
+    #chown system radio /sys/class/sec/sec_epen/epen_checksum_result
+    #chown system radio /sys/class/sec/sec_epen/epen_saving_mode
+    #chown system radio /sys/class/sec/sec_epen/boost_level
 
 # permissions for bluetooth.
     setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
@@ -516,7 +517,7 @@ service wifi-crda /system/bin/sh /system/etc/init.crda.sh
    oneshot
 
 on property:sys.boot_completed=1
-    write /sys/block/mmcblk0/queue/scheduler row
+    setprop sys.io.scheduler bfq
 
     # Configure the hardware properly
     write /sys/module/lpm_levels/enable_low_power/l2 4
