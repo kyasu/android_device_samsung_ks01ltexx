@@ -60,6 +60,16 @@ PRODUCT_PACKAGES += \
     com.dsi.ant.antradio_library \
     libantradio
 
+# Bluetooth
+PRODUCT_COPY_FILES += \
+    device/samsung/ks01lte/bluetooth/bcm4335.hcd:system/vendor/firmware/bcm4335.hcd \
+    device/samsung/ks01lte/bluetooth/bcm4335_prepatch.hcd:system/vendor/firmware/bcm4335_prepatch.hcd
+
+# Camera
+PRODUCT_PACKAGES += \
+    camera.msm8974 \
+    libxml2
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8974
@@ -68,11 +78,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/flp.conf:/system/etc/flp.conf \
     $(LOCAL_PATH)/configs/gps.conf:/system/etc/gps.conf \
     $(LOCAL_PATH)/configs/sap.conf:/system/etc/sap.conf
-
-# camera
-PRODUCT_PACKAGES += \
-    camera.msm8974 \
-    libxml2
 
 # Input device
 PRODUCT_COPY_FILES += \

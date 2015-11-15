@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2014 The CyanogenMod Project
+ * Copyright (C) 2012 The Android Open Source Project
+ * Copyright (C) 2012 The CyanogenMod Project <http://www.cyanogenmod.org>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,10 +19,5 @@
 #define _BDROID_BUILDCFG_H
 
 #define BTM_DEF_LOCAL_NAME   "Samsung Galaxy S4 LTE-A"
-
-#define BTA_DISABLE_DELAY 100 /* in milliseconds */
-#define BTM_WBS_INCLUDED TRUE
-#define BTIF_HF_WBS_PREFERRED TRUE
-#define BLE_VND_INCLUDED TRUE
 
 #endif
