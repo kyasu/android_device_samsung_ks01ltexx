@@ -119,8 +119,7 @@ PRODUCT_COPY_FILES += \
 
 # Radio
 PRODUCT_PACKAGES += \
-    librilsym \
-    librmtsym
+    librilsym
 
 # Ramdisk
 PRODUCT_PACKAGES += \
