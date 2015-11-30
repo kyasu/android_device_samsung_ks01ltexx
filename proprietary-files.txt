@@ -352,18 +352,16 @@ vendor/lib/libconfigdb.so
 vendor/lib/libril-qcril-hook-oem.so
 vendor/lib/libxml.so
 
-# Sensors
+# Sensors (KitKat)
 bin/sensorhubservice
 lib/hw/sensors.msm8974.so
 lib/hw/sensorhubs.msm8974.so
 lib/libsam.so
-lib/libsensirion_ks01_eur.so
+lib/libsensirion_j1.so
 lib/libgnustl_shared.so
 lib/libsensorhub.so
 lib/libsensorhubcontext.so
 lib/libsensorhubservice.so
-vendor/lib/libqcgesture.so
-vendor/lib/libqcsyncgesture.so
 
 # Time services
 -app/TimeService/TimeService.apk
