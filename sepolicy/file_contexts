@@ -11,16 +11,14 @@
 /sys/devices/virtual/timed_output/vibrator(/.*)?        u:object_r:sysfs_vibeamp:s0
 /sys/class/sec/sec_touchkey/keypad_enable               u:object_r:sysfs_display:s0
 
-# Display
-/sys/devices/virtual/lcd/panel/power_reduce             u:object_r:sysfs_display:s0
-
 # NFC
 /dev/bcm2079x                                           u:object_r:nfc_device:s0
 /dev/pn547                                              u:object_r:nfc_device:s0
 /data/bcmnfc(/.*)?                                      u:object_r:nfc_data_file:s0
 
 # SEC
-/sys/devices/virtual/sec/sec_key/hall_irq_ctrl          u:object_r:sysfs_sec:s0
+/sys/devices/virtual/sec(/.*)?							u:object_r:sysfs_sec:s0
+/sys/class/sec(/.*)?									u:object_r:sysfs_sec:s0
 
 #wifi
 /efs/wifi/.mac.info 					u:object_r:wifi_efs_file:s0
