@@ -242,23 +242,20 @@ bin/thermal-engine
 vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 
-# DRM
+# DRM (Marshmallow)
 bin/qseecomd
-lib/libdrmdecrypt.so
-lib/libhdcp2.so
-lib/libstagefright_hdcp.so
-vendor/lib/libWVStreamControlAPI_L1.so
-lib/libwvm.so
+vendor/lib/libdrmdecrypt.so
+vendor/lib/libdrmdiag.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
+vendor/lib/libQSEEComAPI.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
-vendor/lib/libQSEEComAPI.so
 vendor/lib/libwvdrm_L1.so
-vendor/lib/liboemcrypto.so
+vendor/lib/libwvm.so
+vendor/lib/libWVStreamControlAPI_L1.so
+vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
-lib/libdrmdecrypt.so
-lib/drm/libfwdlockengine.so
 
 # Graphics (Marshmallow)
 vendor/lib/egl/eglsubAndroid.so
