@@ -284,12 +284,11 @@ vendor/lib/libscale.so
 etc/firmware/a330_pfp.fw
 etc/firmware/a330_pm4.fw
 
-# GPS
+# GPS (KitKat)
 lib/libloc_api_v02.so
 vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
-vendor/lib/hw/flp.default.so
 
 # IPC router security
 etc/sec_config
