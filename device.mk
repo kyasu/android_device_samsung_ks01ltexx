@@ -68,6 +68,7 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8974 \
+    libstlport \
     libxml2
 
 # GPS
