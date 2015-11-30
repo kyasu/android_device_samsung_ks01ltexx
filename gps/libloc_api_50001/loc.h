@@ -1,4 +1,4 @@
-/* Copyright (c) 2011,2014 The Linux Foundation. All rights reserved.
+/* Copyright (c) 2011-2013, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -36,7 +36,7 @@ extern "C" {
 
 #include <ctype.h>
 #include <cutils/properties.h>
-#include <hardware/gps.h>
+#include "hardware/gps.h"
 #include <gps_extended.h>
 
 #define XTRA_DATA_MAX_SIZE 100000 /*bytes*/
@@ -44,7 +44,6 @@ extern "C" {
 typedef void (*loc_location_cb_ext) (UlpLocation* location, void* locExt);
 typedef void (*loc_sv_status_cb_ext) (GpsSvStatus* sv_status, void* svExt);
 typedef void* (*loc_ext_parser)(void* data);
-typedef void (*loc_shutdown_cb) (void);
 
 typedef struct {
     loc_location_cb_ext location_cb;
@@ -58,7 +57,6 @@ typedef struct {
     loc_ext_parser location_ext_parser;
     loc_ext_parser sv_ext_parser;
     gps_request_utc_time request_utc_time_cb;
-    loc_shutdown_cb shutdown_cb;
 } LocCallbacks;
 
 #ifdef __cplusplus

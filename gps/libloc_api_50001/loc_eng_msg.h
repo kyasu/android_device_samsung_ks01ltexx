@@ -30,7 +30,7 @@
 #define LOC_ENG_MSG_H
 
 
-#include <hardware/gps.h>
+#include "hardware/gps.h"
 #include <gps_extended.h>
 #include <stdlib.h>
 #include <string.h>
@@ -289,13 +289,6 @@ struct LocEngGetZpp : public LocMsg {
     void send() const;
 };
 
-struct LocEngShutdown : public LocMsg {
-    LocEngAdapter* mAdapter;
-    LocEngShutdown(LocEngAdapter* adapter);
-    virtual void proc() const;
-    void locallog() const;
-    virtual void log() const;
-};
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
