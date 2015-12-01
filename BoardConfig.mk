@@ -63,10 +63,6 @@ BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
 # RIL
 BOARD_RIL_CLASS := ../../../device/samsung/ks01lte/ril
 
-# GPS
-TARGET_NO_RPC := true
-TARGET_GPS_HAL_PATH := device/samsung/ks01lte/gps
-
 # Graphics
 TARGET_HAVE_NEW_GRALLOC := true
 
