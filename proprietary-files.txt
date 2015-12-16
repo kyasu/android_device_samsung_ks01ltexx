@@ -242,7 +242,7 @@ bin/thermal-engine
 vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 
-# DRM (Marshmallow)
+# DRM (Marshmallow hammerhead-mmb29k)
 bin/qseecomd
 vendor/lib/libdrmdecrypt.so
 vendor/lib/libdrmdiag.so
@@ -257,7 +257,7 @@ vendor/lib/libWVStreamControlAPI_L1.so
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
-# Graphics (Marshmallow)
+# Graphics (Marshmallow hammerhead-mmb29k)
 vendor/lib/egl/eglsubAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
@@ -270,14 +270,15 @@ vendor/lib/libc2d30-a3xx.so
 vendor/lib/libCB.so
 vendor/lib/libgsl.so
 vendor/lib/libllvm-qcom.so
-vendor/lib/libOpenCL.so
-vendor/lib/libRSDriver_adreno.so
 vendor/lib/librs_adreno_sha1.so
 vendor/lib/librs_adreno.so
+vendor/lib/libRSDriver_adreno.so
 vendor/lib/libsc-a3xx.so
+#
+vendor/lib/libOpenCL.so
 vendor/lib/libscale.so
 
-# Graphics firmware (Marshmallow)
+# Graphics firmware (Marshmallow hammerhead-mmb29k)
 etc/firmware/a330_pfp.fw
 etc/firmware/a330_pm4.fw
 
