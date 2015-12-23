@@ -287,8 +287,6 @@ on post-fs-data
     chmod 0220 /proc/bluetooth/sleep/btwrite
     chown bluetooth bluetooth /proc/bluetooth/sleep/lpm
     chown bluetooth bluetooth /proc/bluetooth/sleep/btwrite
-    chmod 0600 /dev/btlock
-    chown bluetooth bluetooth /dev/btlock
 
     # Power Hal Permissions
     chown system system /sys/class/input/input2/enabled
@@ -371,9 +369,6 @@ on early-boot
     chmod 0664 /sys/class/graphics/fb1/format_3d
     symlink /dev/graphics/fb1 /dev/graphics/hdmi
     chown system system /sys/class/graphics/fb1/format_3d
-
-    chown bluetooth bluetooth /dev/ttyHS0
-    chmod 0660 /dev/ttyHS0
 
 on boot
 # MUIC
@@ -588,7 +583,6 @@ on boot
     chown system radio /sys/class/sensors/magnetic_sensor/vendor
     chown system radio /sys/class/sensors/magnetic_sensor/name
     chown system radio /sys/class/sensors/magnetic_sensor/status
-    chown system input /dev/alps_io
     chown system input /system/etc/param.dat
     chown system input /system/etc/alp_cal.dat
     chown system system /system/etc/calib_SI_matrix_data_file.dat
@@ -655,29 +649,14 @@ on boot
     chown system radio /sys/class/sensors/ssp_sensor/uncalib_gyro_poll_delay
     chown system radio /sys/class/sensors/ssp_sensor/ssp_flush
     chown system radio /sys/class/sensors/ssp_sensor/shake_cam
-    chmod 0600 /dev/batch_io
-    chown system system /dev/batch_io
 # Gesture_sensor
     chown system radio /sys/class/sensors/gesture_sensor/vendor
     chown system radio /sys/class/sensors/gesture_sensor/name
     chown system radio /sys/class/sensors/gesture_sensor/raw_data
     chown system radio /sys/class/sensors/gesture_sensor/ir_current
     chown system radio /sys/class/sensors/gesture_sensor/selftest
-# SHTC1 BULK
-    chmod 0600 /dev/shtc1_sensor
-    chown system system /dev/shtc1_sensor
 
     # IIO devices for SensorHub
-    chmod 0600 /dev/iio:device0
-    chown system system /dev/iio:device0
-    chmod 0600 /dev/iio:device1
-    chown system system /dev/iio:device1
-    chmod 0600 /dev/iio:device2
-    chown system system /dev/iio:device2
-    chmod 0600 /dev/iio:device3
-    chown system system /dev/iio:device3
-    chmod 0600 /dev/iio:device4
-    chown system system /dev/iio:device4
     chown system system /sys/bus/iio/devices/iio:device0/buffer/length
     chown system system /sys/bus/iio/devices/iio:device0/buffer/enable
     chown system system /sys/bus/iio/devices/iio:device1/buffer/length
@@ -789,15 +768,10 @@ on boot
     chmod 0660 /sys/module/hci_smd/parameters/hcismd_set
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chmod 0660 /proc/bluetooth/sleep/proto
-    chown bluetooth bluetooth /dev/ttyHS0
     chmod 0660 /sys/module/hci_uart/parameters/ath_lpm
     chmod 0660 /sys/module/hci_uart/parameters/ath_btwrite
-    chmod 0660 /dev/ttyHS0
     chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
     chmod 0660 /sys/devices/platform/msm_serial_hs.0/clock
-
-    chmod 0660 /dev/ttyHS2
-    chown bluetooth bluetooth /dev/ttyHS2
 
     # for BT MAC address
     mkdir /efs/bluetooth 0775 radio system
