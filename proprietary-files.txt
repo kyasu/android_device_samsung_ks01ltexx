@@ -300,6 +300,9 @@ vendor/lib/liblbs_core.so
 etc/sec_config
 bin/irsc_util
 
+# IR
+lib/hw/consumerir.default.so
+
 # Media
 -vendor/lib/libHevcSwDecoder.so
 vendor/lib/libI420colorconvert.so
