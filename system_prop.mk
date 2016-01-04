@@ -42,11 +42,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.netmgrd.qos.enable=true \
-    persist.data.qmi.adb_logmask=0 \
+    ro.use_data_netmgrd=false \
+    persist.data.netmgrd.qos.enable=false \
+    persist.timed.enable=true \
+    persist.radio.apm_sim_not_pwdn=1 \
+    persist.radio.no_wait_for_card=1 \
     persist.radio.add_power_save=1 \
-    persist.radio.lte_vrat_report=1 \
-    persist.radio.mode_pref_nv10=1 \
+    persist.eons.enabled=true \
+    persist.radio.use_se_table_only=1 \
+    persist.data.qmi.adb_logmask=0 \
     ro.telephony.ril_class=ks01lteRIL \
     ro.telephony.default_network=9 \
     telephony.lteOnGsmDevice=1
