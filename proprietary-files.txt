@@ -306,9 +306,11 @@ bin/irsc_util
 lib/hw/consumerir.default.so
 
 # Media
+vendor/lib/libDivxDrm.so
 -vendor/lib/libHevcSwDecoder.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libmm-color-convertor.so
+vendor/lib/libmmosal.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxAmrwbplusDec.so
 vendor/lib/libOmxEvrcDec.so
