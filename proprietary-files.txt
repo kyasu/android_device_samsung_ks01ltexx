@@ -283,10 +283,6 @@ etc/firmware/a330_pfp.fw
 etc/firmware/a330_pm4.fw
 
 # GPS
-etc/clatd.conf
-etc/flp.conf
-etc/gps.conf
-etc/sap.conf
 lib/hw/gps.default.so
 lib/libgps.utils.so
 lib/libloc_api_v02.so
@@ -383,7 +379,5 @@ etc/wifi/bcmdhd_apsta.bin
 etc/wifi/bcmdhd_mfg.bin
 etc/wifi/bcmdhd_sta.bin
 etc/wifi/bcmdhd_ibss.bin
-etc/wifi/cred.conf
 etc/wifi/nvram_mfg.txt
 etc/wifi/nvram_net.txt
-etc/wifi/wpa_supplicant.conf
