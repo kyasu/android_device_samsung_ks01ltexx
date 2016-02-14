@@ -38,11 +38,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * RIL customization for Galaxy S4 LTE-A devices
+ * RIL customization for Samsung Galaxy (Snapdragon) devices
  *
  * {@hide}
  */
-public class ks01lteRIL extends RIL {
+public class SamsungQcomRIL extends RIL {
 
     private static final int RIL_REQUEST_DIAL_EMERGENCY_LL = 10001;
     private static final int RIL_UNSOL_AM = 11010;
@@ -53,14 +53,15 @@ public class ks01lteRIL extends RIL {
 
     private boolean mIsGsm = true;
     private AudioManager mAudioManager;
+    private boolean mModemIsKitkat = SystemProperties.getBoolean("ro.ril.modemIsKitkat", false);
 
-    public ks01lteRIL(Context context, int networkMode, int cdmaSubscription) {
+    public SamsungQcomRIL(Context context, int networkMode, int cdmaSubscription) {
         super(context, networkMode, cdmaSubscription, null);
         mQANElements = 6;
         mAudioManager = (AudioManager)mContext.getSystemService(Context.AUDIO_SERVICE);
     }
 
-    public ks01lteRIL(Context context, int preferredNetworkType,
+    public SamsungQcomRIL(Context context, int preferredNetworkType,
             int cdmaSubscription, Integer instanceId) {
         super(context, preferredNetworkType, cdmaSubscription, instanceId);
         mQANElements = 6;
@@ -95,6 +96,64 @@ public class ks01lteRIL extends RIL {
         if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
 
         send(rr);
+    }
+
+    @Override
+    public void
+    acceptCall(Message result) {
+        RILRequest rr = RILRequest.obtain(RIL_REQUEST_ANSWER, result);
+
+        rr.mParcel.writeInt(1);
+        rr.mParcel.writeInt(0);
+
+        if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
+
+        send(rr);
+    }
+
+    @Override
+    public void setPhoneType(int phoneType) {
+        super.setPhoneType(phoneType);
+        mIsGsm = (phoneType != RILConstants.CDMA_PHONE);
+    }
+
+    // M feature
+    @Override
+    public void getRadioCapability(Message response) {
+        if (RILJ_LOGV) riljLogv("getRadioCapability");
+        if (response != null) {
+            AsyncResult.forMessage(response, makeStaticRadioCapability(), null);
+            response.sendToTarget();
+        }
+    }
+
+    // M feature
+    @Override
+    public void startLceService(int reportIntervalMs, boolean pullMode, Message response) {
+        if (RILJ_LOGV) riljLogv("startLcdService");
+        failNewRequest(response);
+    }
+
+    @Override
+    public void getHardwareConfig(Message response) {
+        if (mModemIsKitkat) {
+            if (RILJ_LOGV) riljLogv("getHardwareConfig");
+            failNewRequest(response);
+        } else {
+            super.getHardwareConfig(response);
+        }
+    }
+
+    @Override
+    protected void
+    send(RILRequest rr) {
+        if (mModemIsKitkat && (rr != null && rr.mRequest >= 114)) {
+            if (RILJ_LOGV) riljLogv("jacked up request that we need to fix");
+            rr.onError(REQUEST_NOT_SUPPORTED, null);
+            rr.release();
+        } else {
+            super.send(rr);
+        }
     }
 
     @Override
@@ -297,7 +356,8 @@ public class ks01lteRIL extends RIL {
     }
 
     @Override
-    protected void notifyRegistrantsCdmaInfoRec(CdmaInformationRecords infoRec) {
+    protected void
+    notifyRegistrantsCdmaInfoRec(CdmaInformationRecords infoRec) {
         final int response = RIL_UNSOL_CDMA_INFO_REC;
 
         if (infoRec.record instanceof CdmaSignalInfoRec) {
@@ -316,14 +376,8 @@ public class ks01lteRIL extends RIL {
     }
 
     @Override
-    public void setPhoneType(int phoneType) {
-        super.setPhoneType(phoneType);
-        //mIsGsm = (phoneType != RILConstants.CDMA_PHONE);
-    }
-
-    @Override
     protected void
-    processUnsolicited (Parcel p) {
+    processUnsolicited(Parcel p) {
         Object ret;
         int dataPosition = p.dataPosition(); // save off position within the Parcel
         int response = p.readInt();
@@ -356,38 +410,8 @@ public class ks01lteRIL extends RIL {
     }
 
     @Override
-    public void
-    acceptCall (Message result) {
-        RILRequest rr = RILRequest.obtain(RIL_REQUEST_ANSWER, result);
-
-        rr.mParcel.writeInt(1);
-        rr.mParcel.writeInt(0);
-
-        if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
-
-        send(rr);
-    }
-
-    private void
-    dialEmergencyCall(String address, int clirMode, Message result) {
-        RILRequest rr;
-
-        rr = RILRequest.obtain(RIL_REQUEST_DIAL_EMERGENCY_LL, result);
-        rr.mParcel.writeString(address);
-        rr.mParcel.writeInt(clirMode);
-        rr.mParcel.writeInt(0);        // CallDetails.call_type
-        rr.mParcel.writeInt(3);        // CallDetails.call_domain
-        rr.mParcel.writeString("");    // CallDetails.getCsvFromExtra
-        rr.mParcel.writeInt(0);        // Unknown
-
-        if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
-
-        send(rr);
-    }
-
-    @Override
     protected RILRequest
-    processSolicited (Parcel p) {
+    processSolicited(Parcel p) {
         int serial, error;
         boolean found = false;
         int dataPosition = p.dataPosition(); // save off position within the Parcel
@@ -443,6 +467,23 @@ public class ks01lteRIL extends RIL {
         return rr;
     }
 
+    private void
+    dialEmergencyCall(String address, int clirMode, Message result) {
+        RILRequest rr;
+
+        rr = RILRequest.obtain(RIL_REQUEST_DIAL_EMERGENCY_LL, result);
+        rr.mParcel.writeString(address);
+        rr.mParcel.writeInt(clirMode);
+        rr.mParcel.writeInt(0);        // CallDetails.call_type
+        rr.mParcel.writeInt(3);        // CallDetails.call_domain
+        rr.mParcel.writeString("");    // CallDetails.getCsvFromExtra
+        rr.mParcel.writeInt(0);        // Unknown
+
+        if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
+
+        send(rr);
+    }
+
     private Object
     responseDataRegistrationState(Parcel p) {
         String response[] = (String[])responseStrings(p);
@@ -465,12 +506,21 @@ public class ks01lteRIL extends RIL {
      */
     private void setWbAmr(int state) {
         if (state == 1) {
-            Rlog.d(RILJ_LOG_TAG, "setWbAmr(): setting audio parameter - wb_amr=on");
+            if (RILJ_LOGD) riljLog("setWbAmr: setting audio parameter - wb_amr=on");
             mAudioManager.setParameters("wide_voice_enable=true");
         } else if (state == 0) {
-            Rlog.d(RILJ_LOG_TAG, "setWbAmr(): setting audio parameter - wb_amr=off");
+            if (RILJ_LOGD) riljLog("setWbAmr: setting audio parameter - wb_amr=off");
             mAudioManager.setParameters("wide_voice_enable=false");
         }
     }
 
+    private void failNewRequest(Message response) {
+        if (response != null) {
+            if (RILJ_LOGV) riljLogv("failing with REQUEST_NOT_SUPPORTED");
+            CommandException ex;
+            ex = new CommandException(CommandException.Error.REQUEST_NOT_SUPPORTED);
+            AsyncResult.forMessage(response, null, ex);
+            response.sendToTarget();
+        }
+    }
 }
