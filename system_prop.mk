@@ -9,12 +9,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.voicecall=true \
     persist.audio.fluence.voicerec=false \
     ro.qc.sdk.audio.fluencetype=fluence \
-    mm.enable.smoothstreaming=true \
+    use.dedicated.device.for.voip=true
+
+# Audio (Media)
+PRODUCT_PROPERTY_OVERRIDES += \
     av.offload.enable=true \
     av.streaming.offload.enable=true \
+    mm.enable.smoothstreaming=true \
     media.aac_51_output_enabled=true \
     media.aaccodectype=1 \
-    use.dedicated.device.for.voip=true \
     tunnel.audio.encode=true \
     audio.offload.buffer.size.kb=32 \
     audio.offload.gapless.enabled=true \
