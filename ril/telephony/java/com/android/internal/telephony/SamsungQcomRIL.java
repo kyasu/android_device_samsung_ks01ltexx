@@ -25,7 +25,6 @@ import android.os.Message;
 import android.os.Parcel;
 import android.os.SystemProperties;
 import android.telephony.PhoneNumberUtils;
-import android.telephony.Rlog;
 import android.telephony.SignalStrength;
 
 import com.android.internal.telephony.cdma.CdmaInformationRecords;
@@ -44,16 +43,13 @@ import java.util.Collections;
  */
 public class SamsungQcomRIL extends RIL {
 
-    private static final int RIL_REQUEST_DIAL_EMERGENCY_LL = 10001;
+    private static final int RIL_REQUEST_DIAL_EMERGENCY = 10001;
     private static final int RIL_UNSOL_AM = 11010;
     private static final int RIL_UNSOL_WB_AMR_STATE = 11017;
-    private static final int RIL_UNSOL_RESPONSE_HANDOVER = 11021;
-    private static final int RIL_UNSOL_SRVCC_HANDOVER = 11029;
     private static final int RIL_UNSOL_ON_SS_LL = 11055;
 
     private boolean mIsGsm = true;
     private AudioManager mAudioManager;
-    private boolean mModemIsKitkat = SystemProperties.getBoolean("ro.ril.modemIsKitkat", false);
 
     public SamsungQcomRIL(Context context, int networkMode, int cdmaSubscription) {
         super(context, networkMode, cdmaSubscription, null);
@@ -115,45 +111,6 @@ public class SamsungQcomRIL extends RIL {
     public void setPhoneType(int phoneType) {
         super.setPhoneType(phoneType);
         mIsGsm = (phoneType != RILConstants.CDMA_PHONE);
-    }
-
-    // M feature
-    @Override
-    public void getRadioCapability(Message response) {
-        if (RILJ_LOGV) riljLogv("getRadioCapability");
-        if (response != null) {
-            AsyncResult.forMessage(response, makeStaticRadioCapability(), null);
-            response.sendToTarget();
-        }
-    }
-
-    // M feature
-    @Override
-    public void startLceService(int reportIntervalMs, boolean pullMode, Message response) {
-        if (RILJ_LOGV) riljLogv("startLcdService");
-        failNewRequest(response);
-    }
-
-    @Override
-    public void getHardwareConfig(Message response) {
-        if (mModemIsKitkat) {
-            if (RILJ_LOGV) riljLogv("getHardwareConfig");
-            failNewRequest(response);
-        } else {
-            super.getHardwareConfig(response);
-        }
-    }
-
-    @Override
-    protected void
-    send(RILRequest rr) {
-        if (mModemIsKitkat && (rr != null && rr.mRequest >= 114)) {
-            if (RILJ_LOGV) riljLogv("jacked up request that we need to fix");
-            rr.onError(REQUEST_NOT_SUPPORTED, null);
-            rr.release();
-        } else {
-            super.send(rr);
-        }
     }
 
     @Override
@@ -258,11 +215,9 @@ public class SamsungQcomRIL extends RIL {
             dc.als = p.readInt();
             voiceSettings = p.readInt();
             dc.isVoice = (0 != voiceSettings);
-            if (mIsGsm) {
-                int call_type = p.readInt();            // Samsung CallDetails
-                int call_domain = p.readInt();          // Samsung CallDetails
-                String csv = p.readString();            // Samsung CallDetails
-            }
+            int call_type = p.readInt();            // Samsung CallDetails
+            int call_domain = p.readInt();          // Samsung CallDetails
+            String csv = p.readString();            // Samsung CallDetails
             dc.isVoicePrivacy = (0 != p.readInt());
             dc.number = p.readString();
             int np = p.readInt();
@@ -386,12 +341,6 @@ public class SamsungQcomRIL extends RIL {
             case RIL_UNSOL_AM:
                 ret = responseString(p);
                 break;
-            case RIL_UNSOL_RESPONSE_HANDOVER:
-                ret = responseVoid(p);
-                break;
-            case RIL_UNSOL_SRVCC_HANDOVER:
-                ret = responseVoid(p);
-                break;
             case RIL_UNSOL_WB_AMR_STATE:
                 ret = responseInts(p);
                 setWbAmr(((int[])ret)[0]);
@@ -471,7 +420,7 @@ public class SamsungQcomRIL extends RIL {
     dialEmergencyCall(String address, int clirMode, Message result) {
         RILRequest rr;
 
-        rr = RILRequest.obtain(RIL_REQUEST_DIAL_EMERGENCY_LL, result);
+        rr = RILRequest.obtain(RIL_REQUEST_DIAL_EMERGENCY, result);
         rr.mParcel.writeString(address);
         rr.mParcel.writeInt(clirMode);
         rr.mParcel.writeInt(0);        // CallDetails.call_type
@@ -511,16 +460,6 @@ public class SamsungQcomRIL extends RIL {
         } else if (state == 0) {
             if (RILJ_LOGD) riljLog("setWbAmr: setting audio parameter - wb_amr=off");
             mAudioManager.setParameters("wide_voice_enable=false");
-        }
-    }
-
-    private void failNewRequest(Message response) {
-        if (response != null) {
-            if (RILJ_LOGV) riljLogv("failing with REQUEST_NOT_SUPPORTED");
-            CommandException ex;
-            ex = new CommandException(CommandException.Error.REQUEST_NOT_SUPPORTED);
-            AsyncResult.forMessage(response, null, ex);
-            response.sendToTarget();
         }
     }
 }
