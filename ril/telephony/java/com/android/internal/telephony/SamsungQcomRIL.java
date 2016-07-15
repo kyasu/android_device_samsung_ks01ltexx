@@ -53,14 +53,14 @@ public class SamsungQcomRIL extends RIL {
 
     public SamsungQcomRIL(Context context, int networkMode, int cdmaSubscription) {
         super(context, networkMode, cdmaSubscription, null);
-        mQANElements = 6;
+        mQANElements = SystemProperties.getInt("ro.ril.telephony.mqanelements", 6);
         mAudioManager = (AudioManager)mContext.getSystemService(Context.AUDIO_SERVICE);
     }
 
     public SamsungQcomRIL(Context context, int preferredNetworkType,
             int cdmaSubscription, Integer instanceId) {
         super(context, preferredNetworkType, cdmaSubscription, instanceId);
-        mQANElements = 6;
+        mQANElements = SystemProperties.getInt("ro.ril.telephony.mqanelements", 6);
         mAudioManager = (AudioManager)mContext.getSystemService(Context.AUDIO_SERVICE);
     }
 
@@ -310,6 +310,38 @@ public class SamsungQcomRIL extends RIL {
                 tdScdmaRscp, mIsGsm);
     }
 
+    // this method is used in the search network functionality.
+    // in mobile network setting-> network operators
+    @Override
+    protected Object
+    responseOperatorInfos(Parcel p) {
+        String strings[] = (String [])responseStrings(p);
+        ArrayList<OperatorInfo> ret;
+
+        if (strings.length % mQANElements != 0) {
+            throw new RuntimeException(
+                        "RIL_REQUEST_QUERY_AVAILABLE_NETWORKS: invalid response. Got "
+                        + strings.length + " strings, expected multiple of " + mQANElements);
+        }
+
+        ret = new ArrayList<OperatorInfo>(strings.length / mQANElements);
+        Operators init = null;
+        if (strings.length != 0) {
+            init = new Operators();
+        }
+        for (int i = 0 ; i < strings.length ; i += mQANElements) {
+            String temp = init.unOptimizedOperatorReplace(strings[i+0]);
+            ret.add (
+                    new OperatorInfo(
+                                    temp, //operatorAlphaLong
+                                    temp, //operatorAlphaShort
+                                    strings[i+2], //operatorNumeric
+                                    strings[i+3])); //state
+        }
+
+        return ret;
+    }
+
     @Override
     protected void
     notifyRegistrantsCdmaInfoRec(CdmaInformationRecords infoRec) {
@@ -375,6 +407,7 @@ public class SamsungQcomRIL extends RIL {
                     try {switch (tr.mRequest) {
                             /* Get those we're interested in */
                         case RIL_REQUEST_DATA_REGISTRATION_STATE:
+                        case RIL_REQUEST_OPERATOR:
                             rr = tr;
                             break;
                     }} catch (Throwable thr) {
@@ -402,6 +435,7 @@ public class SamsungQcomRIL extends RIL {
         if (error == 0 || p.dataAvail() > 0) {
             switch (rr.mRequest) {
                 case RIL_REQUEST_DATA_REGISTRATION_STATE: ret = responseDataRegistrationState(p); break;
+                case RIL_REQUEST_OPERATOR: ret = operatorCheck(p); break;
                 default:
                     throw new RuntimeException("Unrecognized solicited response: " + rr.mRequest);
             }
@@ -444,6 +478,17 @@ public class SamsungQcomRIL extends RIL {
             response[0].equals("1") &&
             response[3].equals("102")) {
             response[3] = "2";
+        }
+        return response;
+    }
+
+    private Object
+    operatorCheck(Parcel p) {
+        String response[] = (String[])responseStrings(p);
+        for (int i = 0 ; i < 2 ; i++) {
+            if (response[i] != null) {
+                response[i] = Operators.operatorReplace(response[i]);
+            }
         }
         return response;
     }
