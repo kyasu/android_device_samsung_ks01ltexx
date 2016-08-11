@@ -14,6 +14,8 @@
 /dev/block/platform/msm_sdcc.1/by-name/cache          /cache       f2fs    rw,nosuid,nodev,noatime,nodiratime,inline_xattr                                              wait,check,formattable
 /dev/block/platform/msm_sdcc.1/by-name/cache          /cache       ext4    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic    wait,check,formattable
 
+/dev/block/zram0                                    none            swap    defaults zramsize=25%,zramstreams=4,swapprio=10,notrim
+
 # VOLD
 /devices/msm_sdcc.3/mmc_host/mmc2*                    auto         auto    defaults                                    voldmanaged=sdcard1:auto,encryptable=userdata
 /devices/platform/xhci-hcd*                           auto         auto    defaults                                    voldmanaged=usbdisk:auto,noemulatedsd
