@@ -274,6 +274,7 @@ vendor/lib/librs_adreno_sha1.so
 vendor/lib/librs_adreno.so
 vendor/lib/libRSDriver_adreno.so
 vendor/lib/libsc-a3xx.so
+vendor/lib/libuiblur.so
 #
 vendor/lib/libOpenCL.so
 vendor/lib/libscale.so
