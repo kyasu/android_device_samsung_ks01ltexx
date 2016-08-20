@@ -4,8 +4,8 @@
     "target_path": "device/samsung/msm8974-common"
   },
   {
-    "repository": "android_kernel_samsung_ks01lte",
-    "target_path": "kernel/samsung/ks01lte"
+    "repository": "android_kernel_samsung_ks01ltexx",
+    "target_path": "kernel/samsung/ks01ltexx"
   },
   {
     "repository": "android_external_stlport",
