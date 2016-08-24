@@ -19,8 +19,8 @@ WORK IN PROGRESS. WILL EAT YOUR CAT.
 
     <project name="CyanogenMod/android_external_stlport" path="external/stlport" remote="github" />
 
+    <project name="kyasu/android_kernel_samsung_msm8974" path="kernel/samsung/msm8974" remote="github" />
     <project name="kyasu/android_device_samsung_ks01ltexx" path="device/samsung/ks01ltexx" remote="github" />
-    <project name="kyasu/android_kernel_samsung_ks01ltexx" path="kernel/samsung/ks01ltexx" remote="github" />
     <project name="kyasu/android_vendor_samsung_ks01ltexx" path="vendor/samsung/ks01ltexx" remote="github" />
 
   </manifest>
