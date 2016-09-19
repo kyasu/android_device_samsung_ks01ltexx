@@ -47,9 +47,6 @@ on init
     symlink /sdcard /storage/sdcard0
 
 on fs
-    write /sys/devices/msm_sdcc.1/mmc_host/mmc1/power/control on
-    write /sys/devices/msm_sdcc.3/mmc_host/mmc2/power/control on
-
     mount_all fstab.qcom
 
     # Keeping following partitions outside fstab file. As user may not have
@@ -254,8 +251,6 @@ on post-fs-data
 
     mkdir /data/audio/ 0770 media audio
 
-    setprop vold.post_fs_data_done 1
-
     #Create a folder for SRS to be able to create a usercfg file
     mkdir /data/data/media 0770 media media
 
@@ -387,6 +382,8 @@ on post-fs-data
     chown system system /efs/gyro_cal_data
     chmod 0640 /efs/gyro_cal_data
     restorecon /efs/gyro_cal_data
+
+    setprop vold.post_fs_data_done 1
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -973,7 +970,7 @@ on property:persist.usb.chgdisabled=1
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class main
     user camera
-    group camera system inet input graphics radio sdcard_rw sdcard_r media_rw shell log
+    group camera system inet input graphics net_bt_stack
 
 service qseecomd /system/bin/qseecomd
    class late_start
@@ -981,14 +978,18 @@ service qseecomd /system/bin/qseecomd
    group system
 
 service mpdecision /system/bin/mpdecision --avg_comp
+   class main
    user root
    group system
    disabled
 
 service thermal-engine /system/bin/thermal-engine
-   class core
+   class main
    user root
-   group radio system
+   socket thermal-send-client stream 0666 system system
+   socket thermal-recv-client stream 0660 system system
+   socket thermal-recv-passive-client stream 0666 system system
+   group root
 
 service time_daemon /system/bin/time_daemon
    class late_start
