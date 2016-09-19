@@ -32,8 +32,8 @@ BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000
-#TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
+#TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 TARGET_KERNEL_CONFIG := cm_msm8974_sec_defconfig
 TARGET_KERNEL_VARIANT_CONFIG := cm_msm8974_sec_ks01eur_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := cm_selinux_defconfig
