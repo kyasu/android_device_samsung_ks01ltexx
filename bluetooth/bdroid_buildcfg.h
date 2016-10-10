@@ -20,4 +20,7 @@
 
 #define BTM_DEF_LOCAL_NAME   "Samsung Galaxy S4 LTE-A"
 
+/* Defined if the kernel does not have support for CLOCK_BOOTTIME_ALARM */
+#define KERNEL_MISSING_CLOCK_BOOTTIME_ALARM TRUE
+
 #endif
