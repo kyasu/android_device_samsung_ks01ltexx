@@ -1,11 +1,11 @@
-Copyright 2015 - The CyanogenMod Project
+Copyright 2016 - The CyanogenMod Project
 
 Device configuration for Samsung Galaxy S4 LTE-A (GT-I9506).
 
 WORK IN PROGRESS. WILL EAT YOUR CAT.
 ------------------------------------------------------------------
 
-  - For building CM-13.0, create '.repo/local_manifests/roomservice.xml' with
+  - For building CM-14.0, create '.repo/local_manifests/roomservice.xml' with
     the following content:
 
   <?xml version="1.0" encoding="UTF-8"?>
