@@ -95,7 +95,7 @@ on post-fs-data
     mkdir /efs/drm/sdrm/data_agent 0774 drm system
     restorecon /efs/drm
     restorecon /efs/drm/sdrm
-    restorecon /efs/drm/data_agent
+    restorecon /efs/drm/sdrm/data_agent
     restorecon /efs/imei
     restorecon /efs/prox_cal
     restorecon /efs/mps_code.dat
