@@ -30,6 +30,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
 
+# Camera (Media)
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.stagefright.legacyencoder=true \
+    media.stagefright.less-secure=true
+
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdcp2.rx=tz \
