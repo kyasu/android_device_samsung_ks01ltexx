@@ -75,6 +75,10 @@ PRODUCT_PACKAGES += \
     libxml2 \
     Snap
 
+# Doze
+PRODUCT_PACKAGES += \
+    SamsungDoze
+
 # GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/clatd.conf:system/etc/clatd.conf \
@@ -87,14 +91,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc \
     $(LOCAL_PATH)/idc/Synaptics_HID_TouchPad.idc:system/usr/idc/Synaptics_HID_TouchPad.idc
 
+# IPv6 tethering
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes
+
 # Keylayouts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     $(LOCAL_PATH)/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl
-
-# Keystore
-PRODUCT_PACKAGES += \
-   keystore.msm8974
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -106,9 +111,9 @@ PRODUCT_COPY_FILES += \
 
 # NFC
 PRODUCT_PACKAGES += \
+    nfc_nci.bcm2079x.msm8974 \
     com.android.nfc_extras \
     NfcNci \
-    nfc_nci.bcm2079x.msm8974 \
     Tag
 
 PRODUCT_COPY_FILES += \
@@ -119,7 +124,8 @@ PRODUCT_COPY_FILES += \
 
 # Radio
 PRODUCT_PACKAGES += \
-    libril_shim
+    libril_shim \
+    libprotobuf-cpp-full
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -127,7 +133,6 @@ PRODUCT_PACKAGES += \
     init.crda.sh \
     init.qcom.rc \
     init.qcom.usb.rc \
-    init.target.rc \
     ueventd.qcom.rc
 
 # Thermal
@@ -137,11 +142,12 @@ PRODUCT_COPY_FILES += \
 # Wifi
 PRODUCT_PACKAGES += \
     libnetcmdiface \
-    macloader \
-    dhcpcd.conf \
+    macloader
+
+PRODUCT_PACKAGES += \
+    hostapd.accept \
+    hostapd.deny \
     hostapd \
-    hostapd_default.conf \
-    libwpa_client \
     wpa_supplicant
 
 PRODUCT_COPY_FILES += \
@@ -150,5 +156,5 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
-# Common msm8974
+# common msm8974
 $(call inherit-product, device/samsung/msm8974-common/msm8974.mk)
