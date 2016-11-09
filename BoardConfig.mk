@@ -22,8 +22,11 @@ TARGET_OTA_ASSERT_DEVICE := ks01lte,ks01ltexx,GT-I9506
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 
-# Build with Clang by default
-USE_CLANG_PLATFORM_BUILD := true
+# Use Snapdragon LLVM if available on build server
+TARGET_USE_SDCLANG := true
+#SDCLANG := true
+#SDCLANG_PATH := prebuilts/clang/linux-x86/host/sdclang-3.8/bin
+#SDCLANG_LTO_DEFS := device/qcom/common/sdllvm-lto-defs.mk
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
