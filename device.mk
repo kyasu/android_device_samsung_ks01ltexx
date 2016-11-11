@@ -68,6 +68,10 @@ PRODUCT_COPY_FILES += \
     device/samsung/ks01ltexx/bluetooth/bcm4335.hcd:system/vendor/firmware/bcm4335.hcd \
     device/samsung/ks01ltexx/bluetooth/bcm4335_prepatch.hcd:system/vendor/firmware/bcm4335_prepatch.hcd
 
+# Browser
+PRODUCT_PACKAGES += \
+    Gello
+
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8974 \
