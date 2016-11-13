@@ -1089,7 +1089,7 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     oneshot
 
 service macloader /system/bin/macloader
-    class main
+    class late_start
     oneshot
     seclabel u:r:macloader:s0
 
@@ -1100,6 +1100,9 @@ service ril-daemon /system/bin/rild
     socket rild-debug stream 660 radio system
     user root
     group radio cache inet misc audio log wakelock qcom_diag
+
+on property:wlan.driver.status=ok
+    start macloader
 
 on property:init.svc.macloader=stopped
     chown system root /data/.cid.info
