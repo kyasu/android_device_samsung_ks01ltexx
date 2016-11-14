@@ -84,3 +84,6 @@ ro.lineage.build.vendor_security_patch=2016-12-01
 
 # Wifi
 wifi.interface=wlan0
+
+# Tethering
+net.tethering.noprovisioning=true
