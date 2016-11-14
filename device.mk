@@ -57,7 +57,7 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth: prepatch to fix BT/WiFi bus lockups
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/bluetooth/bcm4335_prepatch.hcd:$(TARGET_COPY_OUT_VENDOR)/firmware/bcm4335_prepatch.hcd
+    $(LOCAL_PATH)/bluetooth/bcm4335_prepatch.hcd:$(TARGET_COPY_OUT_VENDOR)/firmware/prepatch/bcm4335_prepatch.hcd
 
 # Camera
 PRODUCT_PACKAGES += \
