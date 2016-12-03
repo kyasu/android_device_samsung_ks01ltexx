@@ -68,6 +68,9 @@ BOARD_HARDWARE_CLASS += device/samsung/ks01ltexx/cmhw
 TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
 
+# IR Blaster
+BOARD_USES_MS_IR_SIGNAL := true
+
 # Legacy BLOB Support
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
