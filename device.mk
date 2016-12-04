@@ -73,6 +73,10 @@ PRODUCT_PACKAGES += \
     libxml2 \
     Snap
 
+# Doze
+PRODUCT_PACKAGES += \
+    SamsungDoze
+
 # GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/clatd.conf:system/etc/clatd.conf \
