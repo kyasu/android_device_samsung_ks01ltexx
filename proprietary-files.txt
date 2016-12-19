@@ -292,6 +292,9 @@ vendor/lib/libperipheral_client.so
 etc/sec_config
 bin/irsc_util
 
+# IR
+lib/hw/consumerir.default.so
+
 # Media
 vendor/lib/libDivxDrm.so
 vendor/lib/libI420colorconvert.so
