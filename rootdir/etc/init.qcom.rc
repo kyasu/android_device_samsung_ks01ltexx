@@ -1180,6 +1180,7 @@ on property:sys.boot_completed=1
     # 7.x versions, NOOP for clean flashes
     restorecon /data/data/com.android.providers.telephony/databases
     restorecon /data/data/com.android.providers.telephony/shared_prefs
+    restorecon /data/user_de/0/com.android.providers.telephony
 
 service hostapd /system/bin/hostapd -dddd /data/hostapd/hostapd.conf
     class late_start
