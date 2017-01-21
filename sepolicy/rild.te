@@ -1,3 +1,4 @@
 allow rild proc_net:file rw_file_perms;
 allow rild self:capability dac_override;
 allow rild sysfs_sec:file rw_file_perms;
+allow rild system_app_data_file:dir r_dir_perms;
