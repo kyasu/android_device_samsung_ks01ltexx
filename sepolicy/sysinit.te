@@ -1,0 +1,2 @@
+allow sysinit sysfs_gpu:dir search;
+allow sysinit sysfs_gpu:file rw_file_perms;
