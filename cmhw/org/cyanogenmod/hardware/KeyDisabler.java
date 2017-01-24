@@ -29,7 +29,7 @@ import org.cyanogenmod.internal.util.FileUtils;
 
 public class KeyDisabler {
 
-    private static String KEYDISABLER_PATH = "/sys/class/sec/sec_touchkey/keypad_enable";
+    private static String KEYDISABLER_PATH = "/sys/devices/virtual/sec/sec_touchkey/keypad_enable";
     /*
      * All HAF classes should export this boolean.
      * Real implementations must, of course, return true
