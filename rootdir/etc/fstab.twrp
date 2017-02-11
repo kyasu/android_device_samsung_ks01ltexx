@@ -10,4 +10,4 @@
 /usbstorage    vfat      /dev/block/sda1 /dev/block/sda                       flags=display="USB Storage";storage;wipeingui;removable
 /modem         emmc      /dev/block/platform/msm_sdcc.1/by-name/modem         flags=backup=1;display="Modem";fsflags=ro
 /firmware      vfat      /dev/block/platform/msm_sdcc.1/by-name/apnhlos       flags=backup=1;subpartitionof=/modem;mounttodecrypt;fsflags=ro
-/misc          emmc      /dev/block/platform/msm_sdcc.1/by-name/pad
+/misc          emmc      /dev/block/platform/msm_sdcc.1/by-name/fota
