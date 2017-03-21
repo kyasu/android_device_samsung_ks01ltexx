@@ -119,10 +119,6 @@ on post-fs-data
     chown system radio /sys/class/host_notify/usb_otg/booster
     chmod 0660 /sys/class/host_notify/usb_otg/booster
 
-    #Essential node for usbservice
-    mkdir /dev/bus/ 755 root root
-    mkdir /dev/bus/usb 755 root root
-
     # wifi
     mkdir /efs/wifi 0775 system system
 
@@ -536,9 +532,9 @@ on boot
     chown system radio /sys/class/host_notify/usb_otg/booster
     chmod 0660 /sys/class/host_notify/usb_otg/booster
 
-#Essential node for usbservice
-    mkdir /dev/bus/ 755 root root
-    mkdir /dev/bus/usb 755 root root
+    #Essential node for usbservice
+    mkdir /dev/bus/ 0755 root root
+    mkdir /dev/bus/usb 0755 root root
 
 # Permissions for InputDevices.
     chown system radio /sys/class/sec/tsp/cmd
