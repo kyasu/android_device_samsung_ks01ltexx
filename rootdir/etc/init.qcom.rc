@@ -218,11 +218,6 @@ on post-fs-data
     chmod 2770 /data/audio
     chown system system /sys/devices/virtual/lcd/panel/panel/backlight
 
-    #Create a folder for SRS to be able to create a usercfg file
-    mkdir /data/data/media 0770 media media
-
-########
-
     # For disabling softkeys *FIXME*
     chown root system  /sys/class/sec/sec_touchkey/brightness
     chmod 0664  /sys/class/sec/sec_touchkey/brightness
