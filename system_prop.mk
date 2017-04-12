@@ -23,8 +23,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.gapless.enabled=true \
     audio.offload.multiple.enabled=false \
     audio.offload.pcm.16bit.enable=true \
-    audio.offload.pcm.24bit.enable=true \
-    audio.deep_buffer.media=true
+    audio.offload.pcm.24bit.enable=true
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
