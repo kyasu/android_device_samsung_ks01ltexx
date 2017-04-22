@@ -17,13 +17,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     av.streaming.offload.enable=true \
     mm.enable.smoothstreaming=true \
     media.aac_51_output_enabled=true \
-    media.aaccodectype=1 \
-    tunnel.audio.encode=true \
     audio.offload.buffer.size.kb=32 \
     audio.offload.gapless.enabled=true \
     audio.offload.multiple.enabled=false \
     audio.offload.pcm.16bit.enable=true \
-    audio.offload.pcm.24bit.enable=true
+    audio.offload.pcm.24bit.enable=true \
+    audio.offload.video=true
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
