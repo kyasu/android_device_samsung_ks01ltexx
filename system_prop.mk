@@ -11,15 +11,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.fluencetype=fluence \
     use.dedicated.device.for.voip=true
 
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    af.fast_track_multiplier=1 \
+#    audio_hal.period_size=192
+
 # Audio (Media)
 PRODUCT_PROPERTY_OVERRIDES += \
-    av.offload.enable=true \
+    audio.offload.disable=0 \
     av.streaming.offload.enable=true \
     mm.enable.smoothstreaming=true \
     media.aac_51_output_enabled=true \
     audio.offload.buffer.size.kb=32 \
-    audio.offload.gapless.enabled=true \
-    audio.offload.multiple.enabled=false \
     audio.offload.pcm.16bit.enable=true \
     audio.offload.pcm.24bit.enable=true \
     audio.offload.video=true
