@@ -79,6 +79,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SamsungDoze
 
+# FlipFlap
+PRODUCT_PACKAGES += \
+    FlipFlap
+
 # GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/clatd.conf:system/etc/clatd.conf \

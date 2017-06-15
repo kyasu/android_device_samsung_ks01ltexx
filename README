@@ -14,6 +14,7 @@ WORK IN PROGRESS. WILL EAT YOUR CAT.
 
     <project name="LineageOS/android_hardware_samsung" path="hardware/samsung" remote="github" />
     <project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings" remote="github" />
+    <project name="LineageOS/android_packages_apps_FlipFlap" path="packages/apps/FlipFlap" remote="github" />
 
     <project name="LineageOS/android_device_qcom_common" path="device/qcom/common" remote="github" />
     <project name="LineageOS/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" />

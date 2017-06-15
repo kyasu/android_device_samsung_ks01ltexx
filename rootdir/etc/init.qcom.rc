@@ -763,7 +763,7 @@ on boot
     chown system radio /sys/class/sec/sec_ir/ir_send
     chown system radio /sys/class/sec/sec_ir/ir_send_result
 # Permission for HALL IC
-    chown system radio /sys/class/sec/sec_key/hall_detect
+    chown system system /sys/class/sec/sec_key/hall_detect
 
 # HDCP 2.x
     mkdir /data/system/hdcp2 0775 system system
