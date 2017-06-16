@@ -313,22 +313,23 @@ public class SamsungQcomRIL extends RIL {
         switch(response) {
             case RIL_UNSOL_AM:
                 ret = responseString(p);
-                break;
+                return;
             case RIL_UNSOL_WB_AMR_STATE:
                 ret = responseInts(p);
                 setWbAmr(((int[])ret)[0]);
+                return;
+            case RIL_UNSOL_NITZ_TIME_RECEIVED:
+                fixNitz(p);
                 break;
             case RIL_UNSOL_ON_SS_LL:
                 p.setDataPosition(dataPosition);
                 p.writeInt(RIL_UNSOL_ON_SS);
-                // Do not break
-            default:
-                // Rewind the Parcel
-                p.setDataPosition(dataPosition);
-                // Forward responses that we are not overriding to the super class
-                super.processUnsolicited(p, type);
-                return;
+                break;
         }
+        // Rewind the Parcel
+        p.setDataPosition(dataPosition);
+        // Forward responses that we are not overriding to the super class
+        super.processUnsolicited(p, type);
     }
 
     @Override
@@ -416,6 +417,24 @@ public class SamsungQcomRIL extends RIL {
         } else if (state == 0) {
             if (RILJ_LOGD) riljLog("setWbAmr: setting audio parameter - wb_amr=off");
             mAudioManager.setParameters("wide_voice_enable=false");
+        }
+    }
+
+    private void
+    fixNitz(Parcel p) {
+        int dataPosition = p.dataPosition();
+        String nitz = p.readString();
+        long nitzReceiveTime = p.readLong();
+
+        String[] nitzParts = nitz.split(",");
+        if (nitzParts.length >= 4) {
+            // 0=date, 1=time+zone, 2=dst, 3(+)=garbage that confuses ServiceStateTracker
+            nitz = nitzParts[0] + "," + nitzParts[1] + "," + nitzParts[2];
+            p.setDataPosition(dataPosition);
+            p.writeString(nitz);
+            p.writeLong(nitzReceiveTime);
+            // The string is shorter now, drop the extra bytes
+            p.setDataSize(p.dataPosition());
         }
     }
 }
