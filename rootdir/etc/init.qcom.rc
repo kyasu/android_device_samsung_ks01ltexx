@@ -879,6 +879,7 @@ service rmt_storage /vendor/bin/rmt_storage
     user root
     group system wakelock
     shutdown critical
+    ioprio rt 0
 
 service rfs_access /vendor/bin/rfs_access
    class core
