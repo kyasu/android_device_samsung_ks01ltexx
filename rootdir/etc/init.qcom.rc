@@ -48,8 +48,12 @@ on init
     # Support legacy paths
     symlink /sdcard /storage/sdcard0
 
+    write /proc/sys/vm/page-cluster 0
+
 on fs
     mount_all fstab.qcom
+    write /proc/sys/vm/swappiness 100
+    swapon_all fstab.qcom
 
     restorecon_recursive /efs
 

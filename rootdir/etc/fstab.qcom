@@ -22,4 +22,7 @@
 /dev/block/platform/msm_sdcc.1/by-name/recovery     /recovery       emmc    defaults                                                                                        recoveryonly
 
 /devices/msm_sdcc.3/mmc_host/mmc*                   auto            auto    defaults                                                                                        voldmanaged=sdcard1:auto,encryptable=userdata
+
+/dev/block/zram0                                    none            swap    defaults zramsize=25%,zramstreams=4,swapprio=10,notrim
+
 /devices/platform/xhci-hcd*                         auto            auto    defaults                                                                                        voldmanaged=usb:auto
