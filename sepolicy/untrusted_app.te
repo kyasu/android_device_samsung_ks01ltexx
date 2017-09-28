@@ -1,11 +1,13 @@
 # These are safe for an untrusted_app -- they are the external SD card
-allow untrusted_app fuseblk:dir search;
-allow untrusted_app fuseblk:file { getattr read };
 # sdcardfs
-allow untrusted_app vfat:dir create_dir_perms;
-allow untrusted_app vfat:file create_file_perms;
+allow untrusted_app exfat:dir create_dir_perms;
+allow untrusted_app exfat:file create_file_perms;
+allow untrusted_app fuseblk:dir create_dir_perms;
+allow untrusted_app fuseblk:file create_file_perms;
 allow untrusted_app sdcard_posix:dir create_dir_perms;
 allow untrusted_app sdcard_posix:file create_file_perms;
+allow untrusted_app vfat:dir create_dir_perms;
+allow untrusted_app vfat:file create_file_perms;
 # gpu
 allow untrusted_app sysfs_gpu:dir search;
 allow untrusted_app sysfs_gpu:file r_file_perms;
