@@ -347,14 +347,9 @@ bin/ks
 bin/qcks
 bin/qmuxd
 bin/rfs_access
-bin/rild
 bin/rmt_storage
-lib/libreference-ril.so
-lib/libril.so
-lib/libsec-ril.so
-lib/libsecnativefeature.so
-lib/libsecril-client.so
 vendor/lib/libril-qcril-hook-oem.so
+lib/libsec-ril.so:vendor/lib/libsec-ril.so
 
 # Sensors
 bin/sensorhubservice

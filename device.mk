@@ -132,7 +132,7 @@ PRODUCT_COPY_FILES += \
 
 # Radio
 PRODUCT_PACKAGES += \
-    libril_shim
+    libsecnativefeature
 
 # Ramdisk
 PRODUCT_PACKAGES += \

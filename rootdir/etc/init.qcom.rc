@@ -28,8 +28,6 @@
 import init.qcom.usb.rc
 
 on early-init
-    export LD_SHIM_LIBS "/system/lib/libril.so|libril_shim.so"
-
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
 
@@ -1028,15 +1026,6 @@ service qmuxd /system/bin/qmuxd
     user radio
     group radio audio bluetooth gps qcom_diag log
 
-service netmgrd /system/bin/netmgrd
-    class main
-    user root
-    group radio
-
-on property:ro.use_data_netmgrd=false
-    # netmgr not supported on specific target
-    stop netmgrd
-
 # Adjust socket buffer to enlarge TCP receive window for high bandwidth
 # but only if ro.data.large_tcp_window_size property is set.
 on property:ro.data.large_tcp_window_size=true
@@ -1078,14 +1067,6 @@ service macloader /system/bin/macloader
     class late_start
     oneshot
     seclabel u:r:macloader:s0
-
-service ril-daemon /system/bin/rild
-    class main
-    socket rild stream 660 root radio
-    socket sap_uim_socket1 stream 660 bluetooth bluetooth
-    socket rild-debug stream 660 radio system
-    user root
-    group radio cache inet misc audio log wakelock qcom_diag
 
 on property:wlan.driver.status=ok
     start macloader

@@ -59,21 +59,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.use_data_netmgrd=false \
-    persist.data.netmgrd.qos.enable=false \
-    persist.timed.enable=true \
-    persist.radio.apm_sim_not_pwdn=1 \
-    persist.radio.no_wait_for_card=1 \
-    persist.radio.add_power_save=1 \
-    persist.eons.enabled=true \
-    persist.radio.use_se_table_only=1 \
+    persist.data.netmgrd.qos.enable=true \
     persist.data.qmi.adb_logmask=0 \
-    ro.ril.telephony.mqanelements=6 \
-    ro.telephony.ril_class=SamsungQcomRIL \
-    ro.telephony.default_network=9 \
-    telephony.lteOnGsmDevice=1 \
+    persist.radio.add_power_save=1 \
+    rild.libpath=/system/vendor/lib/libsec-ril.so \
     ro.telephony.mms_data_profile=5 \
-    ro.telephony.ril.config=newDialCode
+    ro.ril.telephony.mqanelements=6
+
+# Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.call_ring.multiple=0
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
