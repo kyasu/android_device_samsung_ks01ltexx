@@ -29,9 +29,9 @@ vendor/lib/rfsa/adsp/libfastcvadsp.so
 vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
 vendor/lib/rfsa/adsp/libscveT2T_skel.so
 
-# aptX
-vendor/lib/libaptX-1.0.0-rel-Android21-ARMv7A.so
-vendor/lib/libaptXScheduler.so
+# aptX (Moto griffin - NCLS25.86-11-4-6-5)
+vendor/lib/libaptX-1.0.0-rel-Android21-ARMv7A.so|b03772672144d4b750a5672c2922aded93bb0512
+vendor/lib/libaptXScheduler.so|6a0a2d564fde8434018b9840ce81d976b4d4ab28
 
 # Bluetooth firmware
 #vendor/firmware/bcm4335B0_V0343.0358.hcd
@@ -255,26 +255,25 @@ vendor/lib/libQSEEComAPI.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
 
-# Graphics (N from vendor_qcom_binaries)
-vendor/lib/egl/eglsubAndroid.so
-vendor/lib/egl/libEGL_adreno.so
-vendor/lib/egl/libGLESv1_CM_adreno.so
-vendor/lib/egl/libGLESv2_adreno.so
-vendor/lib/egl/libq3dtools_adreno.so
-vendor/lib/libC2D2.so
-vendor/lib/libCB.so
-vendor/lib/libOpenCL.so
-vendor/lib/libRSDriver_adreno.so
-vendor/lib/libadreno_utils.so
-vendor/lib/libbccQTI.so
-vendor/lib/libc2d30-a3xx.so
-vendor/lib/libgsl.so
-vendor/lib/libllvm-qcom.so
-vendor/lib/librs_adreno.so
-vendor/lib/librs_adreno_sha1.so
-vendor/lib/libsc-a3xx.so
-vendor/lib/libscale.so
-vendor/lib/libuiblur.so
+# Graphics (OnePlus onyx - Oxygen OS 3.1.4 - OnePlusXOxygen_14_201611071506)
+vendor/lib/egl/eglsubAndroid.so|b8a5790c5b4ba4cf0018c94066104610c821ed8e
+vendor/lib/egl/libEGL_adreno.so|cd29673e990dba8158e961e287a79dfbd852d095
+vendor/lib/egl/libGLESv1_CM_adreno.so|ae86d16ba499ac6cdd3cecb91ae6b16b4c303984
+vendor/lib/egl/libGLESv2_adreno.so|445be60045ff86d1d27545692134eacf0d89a6dc
+vendor/lib/egl/libq3dtools_adreno.so|2c12919492f1146b58f4f1c379dfe10d3320d476
+vendor/lib/libC2D2.so|d34587d5143bd09f847cb6686b03461a6e62cd87
+vendor/lib/libCB.so|3d2ad5bbff1cf4019d89c38689ec2ce3c186a3c1
+vendor/lib/libOpenCL.so|2b4b9692b16729b880d7881e68208183943f9612
+vendor/lib/libadreno_utils.so|a109e06c933811c578d129c0772a612cf5d94367
+vendor/lib/libbccQTI.so|94132d5d8421428001c2201a8915949c531b0ad9
+vendor/lib/libc2d30-a3xx.so|3666e0bf418e7ea7480b27c2c1ddd1bc86037044
+vendor/lib/libgsl.so|fafee1adf0e89325b3a1ea83d5205c02ebf860f3
+vendor/lib/libllvm-qcom.so|fc96c949b662fb34b287a4c0aa194984fbb57d7d
+vendor/lib/libsc-a3xx.so|231201bcfead5f930537d2fba22d89b00e673386
+vendor/lib/libscale.so|b44f44c633fa404d10e76aaa23593b516e08e2b8
+
+# Graphics blur (OnePlus bacon - Cyanogen OS cm-13.1.2-ZNH2KAS3P0)
+vendor/lib/libuiblur.so|12dd942092c05d978a2a2db3ea37e0b410427b52
 
 # Graphics firmware (Marshmallow)
 etc/firmware/a330_pfp.fw
@@ -286,11 +285,9 @@ lib/libgps.utils.so
 lib/libloc_api_v02.so
 lib/libloc_core.so
 lib/libloc_eng.so
-lib/libmdmdetect.so
 vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
-vendor/lib/libperipheral_client.so
 
 # IPC router security
 etc/sec_config
@@ -323,11 +320,20 @@ vendor/lib/libdisp-aba.so
 -vendor/lib/libmm-abl.so
 vendor/lib/libmm-abl-oem.so
 
-# Qualcomm framework
+# Qualcomm
+vendor/lib/libxml.so
+
+# Qualcomm framework - pinned blobs from G900FXXS1BPCL_G900FOXA1BOJ1_BTU
+lib/libmdmdetect.so
+vendor/lib/libconfigdb.so
 vendor/lib/libdiag.so
+vendor/lib/libdsi_netctrl.so|d5d25fd5b1ea250bdfcb64059eafaf609fe2e32c
 vendor/lib/libdsutils.so
 vendor/lib/libidl.so
+vendor/lib/libnetmgr.so
+vendor/lib/libperipheral_client.so
 vendor/lib/libqcci_legacy.so
+vendor/lib/libqdi.so|6bd79ba4dc4b4af654cda666e829312ba07a22e9
 vendor/lib/libqmi.so
 vendor/lib/libqmi_cci.so
 vendor/lib/libqmi_client_qmux.so
@@ -349,9 +355,7 @@ lib/libril.so
 lib/libsec-ril.so
 lib/libsecnativefeature.so
 lib/libsecril-client.so
-vendor/lib/libconfigdb.so
 vendor/lib/libril-qcril-hook-oem.so
-vendor/lib/libxml.so
 
 # Sensors
 bin/sensorhubservice
@@ -366,11 +370,11 @@ lib/libsensorhubservice.so
 vendor/lib/libqcgesture.so
 vendor/lib/libqcsyncgesture.so
 
-# Time services
--app/TimeService/TimeService.apk
-bin/time_daemon
--vendor/lib/libtime_genoff.so
-vendor/lib/libTimeService.so
+# Time services (Samsung klte - G900FXXU1CQE1_G900FPHE1CQE1_PHE)
+-app/TimeService/TimeService.apk|dd8d01ac83aed2908d1cd4799dba90af175b17a7
+bin/time_daemon|a988427f90ce53b725808258ca29e9e5d1079ac8
+vendor/lib/libTimeService.so|2eaf638faf69a5814e892e6bc38f6616364e4786
+-vendor/lib/libtime_genoff.so|9b130affec781753cdc6dfbbb15768ed8517e03c
 
 # Wi-Fi
 etc/wifi/bcmdhd_apsta.bin
@@ -400,4 +404,6 @@ vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L1.so
 vendor/lib/drm/libdrmwvmplugin.so
-vendor/lib/mediadrm/libwvdrmengine.so
+
+# Widevine (Samsung zero - G920FXXU5EQBA_G920FOJV5EQBB_XSG)
+vendor/lib/mediadrm/libwvdrmengine.so|e669e2fbc352b4e38f4c7ea27c805e1619e9d4ca
