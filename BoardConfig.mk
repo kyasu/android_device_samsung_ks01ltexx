@@ -67,10 +67,6 @@ BOARD_HARDWARE_CLASS += device/samsung/ks01ltexx/cmhw
 # Extended Filesystem Support
 TARGET_KERNEL_HAVE_EXFAT := true
 
-# GPS
-TARGET_NO_RPC := true
-USE_DEVICE_SPECIFIC_GPS := true
-
 # Legacy BLOB Support
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
