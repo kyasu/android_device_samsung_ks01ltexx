@@ -64,11 +64,6 @@ PRODUCT_PACKAGES += \
     com.dsi.ant.antradio_library \
     libantradio
 
-# Bluetooth
-PRODUCT_COPY_FILES += \
-    device/samsung/ks01ltexx/bluetooth/bcm4335.hcd:system/vendor/firmware/bcm4335.hcd \
-    device/samsung/ks01ltexx/bluetooth/bcm4335_prepatch.hcd:system/vendor/firmware/bcm4335_prepatch.hcd
-
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8974 \

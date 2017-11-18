@@ -34,7 +34,7 @@ vendor/lib/libaptX-1.0.0-rel-Android21-ARMv7A.so|b03772672144d4b750a5672c2922ade
 vendor/lib/libaptXScheduler.so|6a0a2d564fde8434018b9840ce81d976b4d4ab28
 
 # Bluetooth firmware
-#vendor/firmware/bcm4335B0_V0343.0358.hcd
+vendor/firmware/bcm4335B0_V0343.0358.hcd
 
 # Camera chromatix
 etc/C13QL_s5k3l2xx_module_info.xml
