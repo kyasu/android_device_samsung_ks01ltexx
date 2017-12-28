@@ -54,4 +54,14 @@ setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
 
 extract "$MY_DIR"/proprietary-files.txt "$SRC"
 
+DEVICE_BLOB_ROOT="$CM_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
+
+MMCAMERA2_SENSOR_MODULES="$DEVICE_BLOB_ROOT"/vendor/lib/libmmcamera2_sensor_modules.so
+sed -i 's|system/etc|vendor/etc|g;
+        s|/system/lib|/vendor/lib|g;
+        s|/system/cameradata|/vendor/cameradata|g' "$MMCAMERA2_SENSOR_MODULES"
+
+THERMAL_ENGINE="$DEVICE_BLOB_ROOT"/vendor/bin/thermal-engine
+sed -i 's|/system/etc|/vendor/etc|g' "$THERMAL_ENGINE"
+
 "$MY_DIR"/setup-makefiles.sh
