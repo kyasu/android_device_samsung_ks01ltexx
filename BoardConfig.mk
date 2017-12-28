@@ -20,6 +20,9 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/ks01ltexx/include
 
 TARGET_OTA_ASSERT_DEVICE := ks01lte,ks01ltexx,GT-I9506
 
+# ADB Legacy Interface
+TARGET_USES_LEGACY_ADB_INTERFACE := true
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 
