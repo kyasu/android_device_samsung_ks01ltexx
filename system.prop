@@ -27,6 +27,7 @@ camera2.portability.force_api=1
 # Camera (Media)
 media.stagefright.legacyencoder=true
 media.stagefright.less-secure=true
+persist.media.treble_omx=false
 
 # Display
 ro.hdcp2.rx=tz
