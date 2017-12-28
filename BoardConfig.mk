@@ -56,6 +56,9 @@ USE_CUSTOM_AUDIO_POLICY := 1
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
+# Binder API version
+TARGET_USES_64_BIT_BINDER := true
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/ks01ltexx/bluetooth
 BOARD_CUSTOM_BT_CONFIG := device/samsung/ks01ltexx/bluetooth/vnd_ks01ltexx.txt
