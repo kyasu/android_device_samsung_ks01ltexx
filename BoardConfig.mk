@@ -72,6 +72,9 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 # Extended Filesystem Support
 TARGET_KERNEL_HAVE_EXFAT := true
 
+# Filesystem
+TARGET_FS_CONFIG_GEN := device/samsung/klte-common/config.fs
+
 # Legacy BLOB Support
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
