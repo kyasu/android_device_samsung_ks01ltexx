@@ -61,6 +61,15 @@ on fs
     write /sys/kernel/boot_adsp/boot 1
     setprop qcom.audio.init complete
 
+    # Adaptive LMK
+    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
+    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
+
+on post-fs
+    # for controlling write performance boosting
+    chown system radio /sys/block/mmcblk0/bkops_en
+    chmod 0664 /sys/block/mmcblk0/bkops_en
+
 on post-fs-data
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
@@ -953,12 +962,11 @@ on boot
 
     # Set the console loglevel to < KERN_INFO
     # Set the default message loglevel to KERN_INFO
-    write /proc/sys/kernel/printk "6 6 1 7"
+    #write /proc/sys/kernel/printk "6 6 1 7"
 
-    # Adaptive LMK
-    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
-    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
-
+    # Flash storage isn't a good entropy source, and only causes locking
+    # overhead in the kernel. Turn it off.
+    write /sys/block/mmcblk0/queue/add_random 0
 
 # Allow usb charging to be disabled peristently
 on property:persist.usb.chgdisabled=1
