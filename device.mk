@@ -128,7 +128,8 @@ PRODUCT_COPY_FILES += \
 
 # Radio
 PRODUCT_PACKAGES += \
-    libsecnativefeature
+    libsecnativefeature \
+    libshim_cutils_atomic
 
 # Ramdisk
 PRODUCT_PACKAGES += \
