@@ -30,8 +30,7 @@ vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
 vendor/lib/rfsa/adsp/libscveT2T_skel.so
 
 # aptX (Moto griffin - NCLS25.86-11-4-6-5)
-vendor/lib/libaptX-1.0.0-rel-Android21-ARMv7A.so|b03772672144d4b750a5672c2922aded93bb0512
-vendor/lib/libaptXScheduler.so|6a0a2d564fde8434018b9840ce81d976b4d4ab28
+vendor/lib/libaptX_encoder.so|b03772672144d4b750a5672c2922aded93bb0512
 
 # Bluetooth firmware
 vendor/firmware/bcm4335B0_V0343.0358.hcd
@@ -275,9 +274,9 @@ vendor/lib/libscale.so|b44f44c633fa404d10e76aaa23593b516e08e2b8
 # Graphics blur (OnePlus bacon - Cyanogen OS cm-13.1.2-ZNH2KAS3P0)
 vendor/lib/libuiblur.so|12dd942092c05d978a2a2db3ea37e0b410427b52
 
-# Graphics firmware (Marshmallow)
-etc/firmware/a330_pfp.fw
-etc/firmware/a330_pm4.fw
+# Graphics firmware (same everywhere, so lets say Samsung G900FXXS1CQI4_G900FPHN1CQI2_PHN)
+vendor/firmware/a330_pfp.fw|3e2fcee7276ded819cf2d95864fdd6788a484ee1
+vendor/firmware/a330_pm4.fw|ae739ea812f9e4462d7bba8b9ead5782d4496618
 
 # GPS (OnePlus bacon - lineage-14.1-20170807-nightly-bacon-signed.zip)
 lib/libloc_api_v02.so|9a8401afc86b54e73aa29995f228fd0243cee793
@@ -351,6 +350,11 @@ bin/rmt_storage
 vendor/lib/libril-qcril-hook-oem.so
 lib/libsec-ril.so:vendor/lib/libsec-ril.so
 
+# Renderscript (Google bullhead - OPR4.170623.006)
+vendor/lib/libRSDriver_adreno.so|2044baf0169177e52aba6d7138f80559ecf2b58d
+vendor/lib/librs_adreno.so|cceaf847d749ac2f1a3af3a1ae6ba653d93e0ed9
+vendor/lib/librs_adreno_sha1.so|e797997d3ac69dfa87904863672c5b9769c796cc
+
 # Sensors
 bin/sensorhubservice
 lib/hw/sensors.msm8974.so
@@ -363,6 +367,9 @@ lib/libsensorhubcontext.so
 lib/libsensorhubservice.so
 vendor/lib/libqcgesture.so
 vendor/lib/libqcsyncgesture.so
+
+# STLport (Camera/RIL) - local compile LineageOS/external/stlport@984b8432
+vendor/lib/libstlport.so|0be0a0d13e12fbf95d97d309dcbc25d3f969a469
 
 # Time services (Samsung klte - G900FXXU1CQE1_G900FPHE1CQE1_PHE)
 -app/TimeService/TimeService.apk|dd8d01ac83aed2908d1cd4799dba90af175b17a7
@@ -393,11 +400,5 @@ etc/wifi/nvram_net.txt_muratafem2
 etc/wifi/nvram_net.txt_semco3rd
 etc/wifi/nvram_net.txt_semcosh
 
-# Widevine
-vendor/lib/libwvdrm_L1.so
-vendor/lib/libwvm.so
-vendor/lib/libWVStreamControlAPI_L1.so
-vendor/lib/drm/libdrmwvmplugin.so
-
-# Widevine (Samsung zero - G920FXXU5EQBA_G920FOJV5EQBB_XSG)
-vendor/lib/mediadrm/libwvdrmengine.so|e669e2fbc352b4e38f4c7ea27c805e1619e9d4ca
+# Widevine (Google angler - OPR6.170623.017)
+vendor/lib/mediadrm/libwvdrmengine.so|66ba66d047044f92eb0eada1faf6a5799ded90ab
