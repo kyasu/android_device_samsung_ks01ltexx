@@ -292,7 +292,7 @@ etc/sec_config
 bin/irsc_util
 
 # IR
-lib/hw/consumerir.default.so
+lib/hw/consumerir.default.so:vendor/lib/hw/consumerir.msm8974.so
 
 # Media
 vendor/lib/libDivxDrm.so
