@@ -73,7 +73,7 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_KERNEL_HAVE_EXFAT := true
 
 # Filesystem
-TARGET_FS_CONFIG_GEN := device/samsung/klte-common/config.fs
+TARGET_FS_CONFIG_GEN := device/samsung/ks01ltexx/config.fs
 
 # HIDL
 DEVICE_MANIFEST_FILE += device/samsung/ks01ltexx/manifest.xml
