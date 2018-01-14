@@ -100,6 +100,10 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
 
+# IR Blaster
+PRODUCT_PACKAGES += \
+    android.hardware.ir@1.0-impl
+
 # Keylayouts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
