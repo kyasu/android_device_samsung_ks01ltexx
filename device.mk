@@ -117,7 +117,7 @@ PRODUCT_PACKAGES += \
     Tag
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/nfcee_access.xml:system/vendor/etc/nfcee_access.xml \
+    $(LOCAL_PATH)/configs/nfcee_access.xml:system/etc/nfcee_access.xml \
     $(LOCAL_PATH)/configs/libnfc-brcm.conf:system/vendor/etc/libnfc-brcm.conf \
     $(LOCAL_PATH)/configs/libnfc-brcm-20791b04.conf:system/vendor/etc/libnfc-brcm-20791b04.conf \
     $(LOCAL_PATH)/configs/libnfc-brcm-20791b05.conf:system/vendor/etc/libnfc-brcm-20791b05.conf
