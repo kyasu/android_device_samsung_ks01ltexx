@@ -151,8 +151,7 @@ BOARD_GLOBAL_CFLAGS += -DTW_USE_MINUI_CUSTOM_FONTS
 endif
 
 # SELinux
--include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += device/samsung/ks01ltexx/sepolicy
+include device/samsung/ks01ltexx/sepolicy/sepolicy.mk
 
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
