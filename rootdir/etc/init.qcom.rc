@@ -183,6 +183,10 @@ on post-fs-data
     chown system root /data/.wifiver.info
     chmod 0666 /data/.wifiver.info
 
+    # for WIFI Front End Module
+    chown system system /data/.cid.info
+    chmod 0664 /data/.cid.info
+
     # Create the directories used by CnE subsystem
     mkdir /data/connectivity 0771 system system
     chown system system /data/connectivity
@@ -961,6 +965,7 @@ on boot
 
     # Set permissions for firmware path control
     chown wifi wifi /sys/module/dhd/parameters/firmware_path
+    chown wifi wifi /sys/module/dhd/parameters/nvram_path
 
 # Allow usb charging to be disabled peristently
 on property:persist.usb.chgdisabled=1
@@ -1051,16 +1056,13 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
 service macloader /vendor/bin/macloader
     class late_start
     oneshot
+    user system
+    group system wifi
     seclabel u:r:macloader:s0
 
 on property:wlan.driver.status=ok
     start macloader
 
-on property:init.svc.macloader=stopped
-    chown system root /data/.cid.info
-    chmod 0664 /data/.cid.info
-    chown system root /data/.rev
-    chmod 0664 /data/.rev
 # end of wifi
 
 on property:sys.boot_completed=1
