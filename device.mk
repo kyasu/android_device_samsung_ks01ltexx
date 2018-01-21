@@ -147,15 +147,7 @@ PRODUCT_PACKAGES += \
     libnetcmdiface \
     macloader
 
-PRODUCT_PACKAGES += \
-    hostapd.accept \
-    hostapd.deny \
-    hostapd \
-    wpa_supplicant
-
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/cred.conf:system/etc/wifi/cred.conf \
-    $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
