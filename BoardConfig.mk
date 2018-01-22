@@ -34,7 +34,7 @@ TARGET_USE_SDCLANG := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F zcache.enabled=1 zcache.compressor=lz4
+BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 zcache.enabled=1 zcache.compressor=lz4
 ifeq ($(RECOVERY_VARIANT),twrp)
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 endif
