@@ -15,6 +15,9 @@
 # limitations under the License.
 #
 
+PRODUCT_COPY_FILES += \
+    device/samsung/ks01ltexx/configs/apns-conf.xml:system/etc/apns-conf.xml
+
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
