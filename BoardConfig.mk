@@ -16,21 +16,14 @@
 # inherit from common msm8974
 -include device/samsung/msm8974-common/BoardConfigCommon.mk
 
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/ks01ltexx/include
+DEVICE_PATH := device/samsung/ks01ltexx
 
 TARGET_OTA_ASSERT_DEVICE := ks01lte,ks01ltexx,GT-I9506
 
-# ADB Legacy Interface
-TARGET_USES_LEGACY_ADB_INTERFACE := true
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
-
-# Use Snapdragon LLVM if available on build server
-TARGET_USE_SDCLANG := true
-#SDCLANG := true
-#SDCLANG_PATH := prebuilts/clang/linux-x86/host/sdclang-3.8/bin
-#SDCLANG_LTO_DEFS := device/qcom/common/sdllvm-lto-defs.mk
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
@@ -48,6 +41,15 @@ LZMA_RAMDISK_TARGETS := recovery
 TARGET_KERNEL_CONFIG := lineage_ks01lte_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8974
 
+# Use Snapdragon LLVM if available on build server
+TARGET_USE_SDCLANG := true
+#SDCLANG := true
+#SDCLANG_PATH := prebuilts/clang/linux-x86/host/sdclang-3.8/bin
+#SDCLANG_LTO_DEFS := device/qcom/common/sdllvm-lto-defs.mk
+
+
+# ADB Legacy Interface
+TARGET_USES_LEGACY_ADB_INTERFACE := true
 
 # Audio
 BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
@@ -57,26 +59,25 @@ USE_CUSTOM_AUDIO_POLICY := 1
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/ks01ltexx/bluetooth
-BOARD_CUSTOM_BT_CONFIG := device/samsung/ks01ltexx/bluetooth/vnd_ks01ltexx.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+BOARD_CUSTOM_BT_CONFIG := $(DEVICE_PATH)/bluetooth/vnd_ks01ltexx.txt
 BOARD_HAVE_BLUETOOTH_BCM := true
 
 # Camera
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
-TARGET_PROVIDES_CAMERA_HAL := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Extended Filesystem Support
 TARGET_KERNEL_HAVE_EXFAT := true
 
 # HIDL
-DEVICE_MANIFEST_FILE += device/samsung/ks01ltexx/manifest.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Legacy BLOB Support
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
 # LineageHW
-BOARD_HARDWARE_CLASS += device/samsung/ks01ltexx/lineagehw
+BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/lineagehw
 
 # NFC
 BOARD_NFC_HAL_SUFFIX := msm8974
@@ -91,11 +92,11 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Power HAL
+TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(DEVICE_PATH)/power/power_ext.c
 TARGET_POWERHAL_VARIANT := qcom
-TARGET_POWERHAL_SET_INTERACTIVE_EXT := device/samsung/ks01ltexx/power/power_ext.c
 
 # Properties
-TARGET_SYSTEM_PROP += device/samsung/ks01ltexx/system.prop
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Radio
 BOARD_PROVIDES_LIBRIL := true
@@ -104,7 +105,7 @@ TARGET_RIL_VARIANT := caf
 #RECOVERY_VARIANT := twrp
 # Recovery
 ifneq ($(RECOVERY_VARIANT),twrp)
-TARGET_RECOVERY_FSTAB := device/samsung/ks01ltexx/rootdir/etc/fstab.full
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.full
 endif
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 BOARD_HAS_DOWNLOAD_MODE := true
@@ -123,7 +124,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.allow.mock.location=1 \
     ro.debuggable=1 \
     persist.sys.usb.config=adb
-TARGET_RECOVERY_FSTAB := device/samsung/ks01ltexx/rootdir/etc/fstab.twrp
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.twrp
 DEVICE_RESOLUTION := 1080x1920
 BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_SDCARD_ON_DATA := true
@@ -145,7 +146,7 @@ BOARD_GLOBAL_CFLAGS += -DTW_USE_MINUI_CUSTOM_FONTS
 endif
 
 # SELinux
-include device/samsung/ks01ltexx/sepolicy/sepolicy.mk
+include $(DEVICE_PATH)/sepolicy/sepolicy.mk
 
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
