@@ -14,15 +14,6 @@
 # limitations under the License.
 #
 
--include device/qcom/sepolicy/sepolicy.mk
--include device/qcom/sepolicy/legacy-sepolicy.mk
-
 # Board specific SELinux policy variable definitions
 BOARD_SEPOLICY_DIRS += \
     device/samsung/ks01ltexx/sepolicy/common
-
-BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
-    device/samsung/ks01ltexx/sepolicy/public
-
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
-    device/samsung/ks01ltexx/sepolicy/private
