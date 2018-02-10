@@ -28,8 +28,8 @@ vendor/lib/rfsa/adsp/libfastcvadsp.so
 vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
 vendor/lib/rfsa/adsp/libscveT2T_skel.so
 
-# Bluetooth firmware
-vendor/firmware/bcm4335B0_V0343.0358.hcd
+# Bluetooth firmware (g2-common)
+vendor/firmware/bcm4335B0_002.001.006.0191.0201_ORC.hcd
 
 # Camera chromatix
 etc/C13QL_s5k3l2xx_module_info.xml:vendor/etc/C13QL_s5k3l2xx_module_info.xml
