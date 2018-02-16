@@ -182,6 +182,7 @@ on post-fs-data
     write /data/.wifiver.info 0
     chown system root /data/.wifiver.info
     chmod 0666 /data/.wifiver.info
+    restorecon /data/.wifiver.info
 
     # for WIFI Front End Module
     chown system system /data/.cid.info
