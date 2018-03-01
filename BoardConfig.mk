@@ -48,9 +48,6 @@ TARGET_USE_SDCLANG := true
 #SDCLANG_LTO_DEFS := device/qcom/common/sdllvm-lto-defs.mk
 
 
-# ADB Legacy Interface
-TARGET_USES_LEGACY_ADB_INTERFACE := true
-
 # Audio
 BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
 USE_CUSTOM_AUDIO_POLICY := 1
