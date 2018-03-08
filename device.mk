@@ -39,7 +39,6 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.consumerir.xml:system/vendor/etc/permissions/android.hardware.consumerir.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/vendor/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/vendor/etc/permissions/android.hardware.nfc.hce.xml \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/vendor/etc/permissions/android.hardware.telephony.cdma.xml \
@@ -84,10 +83,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
-
-# IR Blaster
-PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-impl
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
