@@ -23,14 +23,14 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 $(call inherit-product, device/samsung/ks01ltexx/full_ks01ltexx.mk)
 
-PRODUCT_DEVICE := ks01ltexx
+## Device identifier. This must come after all inclusions
 PRODUCT_NAME := lineage_ks01ltexx
+PRODUCT_DEVICE := ks01ltexx
+PRODUCT_MODEL := GT-I9506
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=ks01ltexx \
-    PRODUCT_DEVICE=ks01ltexx \
-    TARGET_DEVICE=ks01ltexx \
-    PRODUCT_MODEL=GT-I9506 \
+    TARGET_DEVICE=ks01lte \
     PRIVATE_BUILD_DESC="ks01ltexx-user 5.0.1 LRX22C I9506XXSDPL2 release-keys"
 
 BUILD_FINGERPRINT := samsung/ks01ltexx/ks01lte:5.0.1/LRX22C/I9506XXSDPL2:user/release-keys
