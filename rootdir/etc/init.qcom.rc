@@ -51,7 +51,6 @@ on init
 
 on fs
     mount_all fstab.qcom
-    swapon_all fstab.qcom
 
     restorecon_recursive /efs
 
@@ -1024,6 +1023,9 @@ on property:wlan.driver.status=ok
 
 on property:sys.boot_completed=1
     setprop sys.io.scheduler bfq
+
+    # Enable ZRAM on boot_complete
+    swapon_all fstab.qcom
 
     # Configure the hardware properly
     write /sys/module/lpm_levels/enable_low_power/l2 4
