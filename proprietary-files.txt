@@ -31,8 +31,8 @@ vendor/lib/rfsa/adsp/libscveT2T_skel.so
 # aptX (Moto griffin - NCLS25.86-11-4-6-5)
 vendor/lib/libaptX_encoder.so|b03772672144d4b750a5672c2922aded93bb0512
 
-# Bluetooth firmware (g2-common)
-vendor/firmware/bcm4335B0_002.001.006.0191.0201_ORC.hcd
+# Bluetooth firmware (jf-common)
+vendor/firmware/bcm4335_V0343.0353.hcd
 
 # Camera chromatix
 etc/C13QL_s5k3l2xx_module_info.xml:vendor/etc/C13QL_s5k3l2xx_module_info.xml
