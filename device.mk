@@ -15,9 +15,14 @@
 #
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
+
+# Inherit from msm8974-common
+$(call inherit-product, device/samsung/msm8974-common/msm8974.mk)
 
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/samsung/ks01ltexx/ks01ltexx-vendor.mk)
+
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -32,9 +37,6 @@ PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi mdpi
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
-
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
-
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -139,6 +141,3 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
-
-# common msm8974
-$(call inherit-product, device/samsung/msm8974-common/msm8974.mk)
