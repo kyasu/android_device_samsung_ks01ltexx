@@ -353,7 +353,7 @@ vendor/lib/librs_adreno_sha1.so|e797997d3ac69dfa87904863672c5b9769c796cc
 
 # Sensors
 bin/sensorhubservice:vendor/bin/sensorhubservice
-lib/hw/sensors.msm8974.so:vendor/lib/hw/sensors.msm8974.so
+lib/hw/sensors.msm8974.so:vendor/lib/hw/sensors.vendor.msm8974.so
 lib/hw/sensorhubs.msm8974.so:vendor/lib/hw/sensorhubs.msm8974.so
 lib/libsam.so:vendor/lib/libsam.so
 lib/libsensirion_ks01_eur.so:vendor/lib/libsensirion_ks01_eur.so
