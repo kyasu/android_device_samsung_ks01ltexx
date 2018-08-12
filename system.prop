@@ -63,7 +63,7 @@ ro.telephony.call_ring.multiple=0
 debug.sensors=1
 
 # Vendor security patch level
-ro.lineage.build.vendor_security_patch=2016-12-01
+ro.lineage.build.vendor_security_patch=2017-08-01
 
 # Wifi
 wifi.interface=wlan0
