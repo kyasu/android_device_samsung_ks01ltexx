@@ -7,19 +7,22 @@ persist.audio.fluence.speaker=true
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=false
 ro.qc.sdk.audio.fluencetype=fluence
-use.dedicated.device.for.voip=true
+use.voice.path.for.pcm.voip=true
 #af.fast_track_multiplier=1
 #audio_hal.period_size=192
 
 # Audio (Media)
-audio.offload.disable=0
+audio.offload.disable=true
 av.streaming.offload.enable=true
 mm.enable.smoothstreaming=true
 media.aac_51_output_enabled=true
 audio.offload.buffer.size.kb=32
 audio.offload.pcm.16bit.enable=true
 audio.offload.pcm.24bit.enable=true
+audio.offload.multiple.enabled=true
+audio.offload.gapless.enabled=true
 audio.offload.video=true
+tunnel.audio.encode=true
 
 # Camera
 camera2.portability.force_api=1
