@@ -974,14 +974,14 @@ service qcamerasvr /vendor/bin/mm-qcamera-daemon
     group camera system inet input graphics bluetooth
 
 service qseecomd /vendor/bin/qseecomd
-   class late_start
+   class core
    user root
-   group system
+   group root
 
 service mpdecision /vendor/bin/mpdecision --avg_comp
    class main
    user root
-   group system
+   group system readproc
    disabled
 
 service thermal-engine /vendor/bin/thermal-engine
