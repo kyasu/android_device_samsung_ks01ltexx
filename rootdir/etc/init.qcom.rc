@@ -87,10 +87,7 @@ on post-fs-data
     restorecon /efs/drm
     restorecon /efs/drm/sdrm
     restorecon /efs/drm/sdrm/data_agent
-    restorecon /efs/imei
-    restorecon /efs/prox_cal
-    restorecon /efs/mps_code.dat
-    restorecon_recursive /efs/FactoryApp
+
     # DivX DRM
     mkdir /efs/.files 0775
     mkdir /efs/.files/.dx1 0775
@@ -199,15 +196,10 @@ on post-fs-data
 
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
-    restorecon_recursive /data/misc/audio
 
     # Create directory used by the DASH client
     mkdir /data/misc/dash 0770 media audio
 
-    # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
-    # We chown/chmod /persist again so because mount is run as root + defaults
-    chown system system /persist
-    chmod 0771 /persist
     chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
     chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
     chmod 0664 /sys/devices/platform/msm_sdcc.3/polling
@@ -243,6 +235,9 @@ on post-fs-data
     mkdir /data/time/ 0700 system system
 
     mkdir /data/audio/ 0770 media audio
+    # Enable the setgid bit on the directory
+    chmod 2770 /data/audio
+    chown system system /sys/devices/virtual/lcd/panel/panel/backlight
 
     #Create a folder for SRS to be able to create a usercfg file
     mkdir /data/data/media 0770 media media
@@ -343,10 +338,6 @@ on post-fs-data
     #Create directories for QuIPS
     mkdir /data/misc/quipc 0770 system gps
 
-    # Enable the setgid bit on the directory
-    chmod 2770 /data/audio
-    chown system system /sys/devices/virtual/lcd/panel/panel/backlight
-
 # Broadcom NFC
     chmod 0600 /dev/bcm2079x
     chown nfc nfc /dev/bcm2079x
@@ -361,13 +352,14 @@ on post-fs-data
     chmod 0660 /dev/pn547
     chown nfc nfc /dev/pn547
 
-    #Create a folder for SRS to be able to create a usercfg file
-    mkdir /data/data/media 0770 media media
-    restorecon_recursive /data/media
-
 # GPIO DVS
     chown radio system /sys/class/secgpio_check/secgpio_check_all/secgpio_ctrl
-# sensor
+
+# Sensor
+    chown system system /efs/prox_cal
+    chmod 0640 /efs/prox_cal
+    restorecon /efs/prox_cal
+
     chown system system /efs/FactoryApp/baro_delta
     chmod 0640 /efs/FactoryApp/baro_delta
     restorecon /efs/FactoryApp/baro_delta
@@ -433,16 +425,16 @@ on boot
     chown radio system /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies
     chmod 664  /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies
 
-    chown radio system /sys/class/devfreq/qcom,cpubw.34/available_frequencies
-    chmod 664 /sys/class/devfreq/qcom,cpubw.34/available_frequencies
-    chown radio system /sys/class/devfreq/qcom,cpubw.34/available_governors
-    chmod 664 /sys/class/devfreq/qcom,cpubw.34/available_governors
-    chown radio system /sys/class/devfreq/qcom,cpubw.34/governor
-    chmod 664 /sys/class/devfreq/qcom,cpubw.34/governor
-    chown radio system /sys/class/devfreq/qcom,cpubw.34/max_freq
-    chmod 664 /sys/class/devfreq/qcom,cpubw.34/max_freq
-    chown radio system /sys/class/devfreq/qcom,cpubw.34/min_freq
-    chmod 664 /sys/class/devfreq/qcom,cpubw.34/min_freq
+    chown radio system /sys/class/devfreq/qcom,cpubw.42/available_frequencies
+    chmod 664 /sys/class/devfreq/qcom,cpubw.42/available_frequencies
+    chown radio system /sys/class/devfreq/qcom,cpubw.42/available_governors
+    chmod 664 /sys/class/devfreq/qcom,cpubw.42/available_governors
+    chown radio system /sys/class/devfreq/qcom,cpubw.42/governor
+    chmod 664 /sys/class/devfreq/qcom,cpubw.42/governor
+    chown radio system /sys/class/devfreq/qcom,cpubw.42/max_freq
+    chmod 664 /sys/class/devfreq/qcom,cpubw.42/max_freq
+    chown radio system /sys/class/devfreq/qcom,cpubw.42/min_freq
+    chmod 664 /sys/class/devfreq/qcom,cpubw.42/min_freq
 
     # SEC PM sysfs node
     chown system radio /sys/devices/system/soc/soc0/soc_iddq
@@ -1002,10 +994,10 @@ service adsprpcd /vendor/bin/adsprpcd
    user media
    group media
 
-service audiod /system/bin/audiod
-   class late_start
-   user system
-   group system
+#service audiod /system/bin/audiod
+#   class late_start
+#   user system
+#   group system
 
 service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class main
@@ -1092,9 +1084,6 @@ on property:sys.boot_completed=1
     write /sys/module/msm_thermal/core_control/enabled 0
 
     # Configure the CPU governor
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu2/online 1
-    write /sys/devices/system/cpu/cpu3/online 1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
@@ -1127,9 +1116,6 @@ on property:sys.boot_completed=1
     write /sys/module/cpu_boost/parameters/sync_threshold 1728000
     write /sys/module/cpu_boost/parameters/input_boost_freq 1497600
     write /sys/module/cpu_boost/parameters/input_boost_ms 40
-
-    # Configure the devfreq governor
-    write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
 
     # Post boot services
     rm /data/system/perfd/default_values
