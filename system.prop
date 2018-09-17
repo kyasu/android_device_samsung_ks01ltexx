@@ -3,27 +3,27 @@ dalvik.vm.dex2oat-filter=speed
 dalvik.vm.dex2oat-swap=false
 
 # Audio
-persist.audio.fluence.speaker=true
-persist.audio.fluence.voicecall=true
-persist.audio.fluence.voicerec=false
-ro.qc.sdk.audio.fluencetype=fluence
-use.dedicated.device.for.voip=true
-use.voice.path.for.pcm.voip=false
+persist.vendor.audio.fluence.speaker=true
+persist.vendor.audio.fluence.voicecall=true
+persist.vendor.audio.fluence.voicerec=false
+ro.vendor.audio.sdk.fluencetype=fluence
+vendor.dedicated.device.for.voip=true
+vendor.voice.path.for.pcm.voip=false
 #af.fast_track_multiplier=1
-#audio_hal.period_size=192
+#vendor.audio_hal.period_size=192
 
 # Audio (Media)
 audio.offload.disable=true
-av.streaming.offload.enable=true
-mm.enable.smoothstreaming=true
-media.aac_51_output_enabled=true
 audio.offload.buffer.size.kb=32
 audio.offload.pcm.16bit.enable=true
 audio.offload.pcm.24bit.enable=true
-audio.offload.multiple.enabled=true
-audio.offload.gapless.enabled=true
 audio.offload.video=true
+media.aac_51_output_enabled=true
+mm.enable.smoothstreaming=true
 tunnel.audio.encode=true
+vendor.audio.av.streaming.offload.enable=true
+vendor.audio.offload.multiple.enabled=true
+vendor.audio.offload.gapless.enabled=true
 
 # Camera
 camera2.portability.force_api=1
