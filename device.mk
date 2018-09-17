@@ -15,7 +15,6 @@
 #
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 
 # Inherit from msm8974-common
 $(call inherit-product, device/samsung/msm8974-common/msm8974.mk)
