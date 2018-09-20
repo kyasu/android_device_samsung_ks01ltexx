@@ -71,7 +71,7 @@ TARGET_LD_SHIM_LIBS += \
     /system/vendor/lib/hw/camera.vendor.msm8974.so|libshim_camera.so
 
 # LineageHW
-BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/lineagehw
+JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(DEVICE_PATH)/lineagehw|**/*.java
 
 # NFC
 BOARD_NFC_HAL_SUFFIX := msm8974
