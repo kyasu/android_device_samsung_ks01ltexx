@@ -110,10 +110,7 @@ PRODUCT_COPY_FILES += \
 
 # Radio
 PRODUCT_PACKAGES += \
-    libsecnativefeature \
-    libcnefeatureconfig \
-    librmnetctl \
-    libxml2
+    libsecnativefeature
 
 # Ramdisk
 PRODUCT_PACKAGES += \
