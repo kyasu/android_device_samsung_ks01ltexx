@@ -72,7 +72,8 @@ TARGET_LD_SHIM_LIBS += \
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
     /system/bin/mediaserver=22 \
     /system/vendor/bin/hw/android.hardware.sensors@1.0-service.samsung8974=22 \
-    /system/vendor/bin/mm-qcamera-daemon=22
+    /system/vendor/bin/mm-qcamera-daemon=22 \
+    /system/vendor/bin/hw/rild=27
 
 # LineageHW
 JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(DEVICE_PATH)/lineagehw|**/*.java
