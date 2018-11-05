@@ -345,7 +345,11 @@ on early-boot
     chown system system /sys/class/graphics/fb1/format_3d
 
 on boot
-# MUIC
+    # Set permissions so radio can read
+    chown root radio /proc/cmdline
+    chmod 0444 /proc/cmdline
+
+    # MUIC
     chown radio system /sys/class/sec/switch/usb_sel
     chown radio system /sys/class/sec/switch/usb_state
     chown radio system /sys/class/sec/switch/uart_sel
@@ -354,7 +358,7 @@ on boot
     chown system radio /sys/class/sec/switch/adc
     chown system radio /sys/class/sec/switch/otg_test
 
-# Fingerprint
+    # Fingerprint
     mkdir /dev/validity 0775 system system
 
     chown radio system /sys/devices/system/cpu/kernel_max
@@ -413,7 +417,6 @@ on boot
 
     chown radio system /sys/class/lcd/panel/partial_disp
     chmod 0660 /sys/class/lcd/panel/partial_disp
-
 
     # LCD HMT
     chown radio system /sys/class/lcd/panel/hmt_on
@@ -475,7 +478,6 @@ on boot
     chown system system /sys/kernel/ipv4/tcp_rmem_min
     chown system system /sys/kernel/ipv4/tcp_rmem_def
     chown system system /sys/kernel/ipv4/tcp_rmem_max
-    chown root radio /proc/cmdline
 
 # Adjust YUV to RGB Conversion(CSC_Conversion)
     chown system media_rw /sys/class/graphics/fb0/csc_cfg
