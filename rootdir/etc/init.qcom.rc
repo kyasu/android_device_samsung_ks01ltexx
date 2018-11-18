@@ -396,8 +396,6 @@ on early-boot
     chmod 0660 /dev/ttyHS0
 
 on boot
-    mount debugfs /sys/kernel/debug /sys/kernel/debug
-
 # MUIC
     chown radio system /sys/class/sec/switch/usb_sel
     chown radio system /sys/class/sec/switch/usb_state
