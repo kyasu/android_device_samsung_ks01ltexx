@@ -39,6 +39,10 @@ dalvik.vm.heaptargetutilization=0.75
 dalvik.vm.heapminfree=2m
 dalvik.vm.heapmaxfree=8m
 
+# Memory optimizations
+ro.vendor.qti.am.reschedule_service=true
+ro.vendor.qti.sys.fw.bservice_enable=true
+
 # Display
 ro.hdcp2.rx=tz
 ro.qualcomm.cabl=1
