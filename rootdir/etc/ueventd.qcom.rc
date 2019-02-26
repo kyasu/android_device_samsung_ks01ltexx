@@ -156,11 +156,27 @@
 /dev/ttyHS0               0660   bluetooth  bluetooth
 /dev/ttyHS2               0660   bluetooth  bluetooth
 
+# bluetooth LPM
+/dev/btlock               0600   bluetooth  bluetooth
+
 # Broadcast devices
 /dev/tsc_mux0             0660   media       media
 /dev/tsc_ci0              0660   media       media
 
+# NFC bcm2079x
+/dev/bcm2079x             0660   nfc        nfc
+
+# NFC_SLSI
+/dev/sec-nfc              0660   nfc        nfc
+
+# SHTC1 BULK
+/dev/shtc1_sensor         0600   system     system
+
+# Vibrator
+/dev/tspdrv               0660   root        shell
+
 # sensors
+/dev/alps_io              0660   input       system
 /sys/devices/i2c-12/12-*  pollrate_ms 0664 system system
 /sys/devices/f9925000.i2c/i2c-0/0-* enable          0660     input     system
 /sys/devices/f9925000.i2c/i2c-0/0-* poll_delay      0660     input     system
@@ -207,6 +223,7 @@ v/ppp                  0660   radio      vpn
 /sys/devices/f9924000.i2c/i2c-2/2-0020/input/input*   enabled     0660  system  system
 
 # sensorhub
+/dev/batch_io             0660   system     system
 /dev/ssp_sensorhub        0660   system     system
 /dev/iio:device*          0660   system system
 /sys/devices/f9967000.spi/spi_master/spi32766/spi32766.0/iio:device*   buffer/enable 0660     system    system
@@ -373,4 +390,3 @@ v/ppp                  0660   radio      vpn
 /sys/devices/f9968000.i2c/i2c-12/12-0068/iio:device* dmp_firmware                       0660   system     radio
 /sys/devices/f9968000.i2c/i2c-12/12-0068/iio:device* pedometer_int_thresh               0660   system     radio
 /sys/devices/f9968000.i2c/i2c-12/12-0068/iio:device* pedometer_step_thresh              0660   system     radio
-
