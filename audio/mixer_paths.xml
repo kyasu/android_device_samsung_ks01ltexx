@@ -519,6 +519,9 @@
 		<ctl name="DEC6 Volume" value="100" />
 		<ctl name="ADC3 Volume" value="17" />
 		<ctl name="DEC4 Volume" value="100" />
+		<!-- Swap L/R channels -->
+		<ctl name="SLIM TX7 MUX" value="DEC4" />
+		<ctl name="SLIM TX8 MUX" value="DEC6" />
 	</path>
 
 	<path name="rec-high-gain-main-mic">
