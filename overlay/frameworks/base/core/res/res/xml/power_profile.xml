@@ -34,8 +34,7 @@
         <value>422400</value>
         <value>300000</value>
     </array>
-    <item name="cpu.idle">4</item>
-    <item name="wakeup.power">0.15</item>
+    <item name="cpu.suspend">4</item>
     <array name="cpu.core_power.cluster0">
         <value>433</value>
         <value>353</value>
