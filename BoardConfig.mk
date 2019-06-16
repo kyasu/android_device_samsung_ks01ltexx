@@ -78,6 +78,9 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
     /system/vendor/bin/mm-qcamera-daemon=22 \
     /system/vendor/bin/hw/rild=27
 
+# System Server
+PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
+
 # LineageHW
 JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(DEVICE_PATH)/lineagehw|**/*.java
 
