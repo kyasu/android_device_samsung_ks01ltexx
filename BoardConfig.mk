@@ -81,6 +81,11 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
 # System Server
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 
+# Dexpreopt
+# Always preopt extracted APKs to prevent extracting out of the APK
+# for gms modules.
+PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
+
 # LineageHW
 JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(DEVICE_PATH)/lineagehw|**/*.java
 
