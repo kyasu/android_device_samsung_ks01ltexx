@@ -11,6 +11,7 @@ vendor.dedicated.device.for.voip=true
 vendor.voice.path.for.pcm.voip=false
 #af.fast_track_multiplier=1
 #vendor.audio_hal.period_size=192
+ro.config.vc_call_vol_steps=7
 
 # Audio (Media)
 audio.offload.disable=true
