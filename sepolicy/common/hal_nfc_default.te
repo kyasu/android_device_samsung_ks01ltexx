@@ -1,0 +1,2 @@
+allow hal_nfc_default nfc_fw_file:file r_file_perms;
+allow hal_nfc_default system_data_file:file r_file_perms;

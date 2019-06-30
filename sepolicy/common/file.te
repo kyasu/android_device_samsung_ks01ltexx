@@ -1,1 +1,3 @@
+type hal_data_file, file_type, data_file_type;
 type sensors_efs_file, file_type;
+type vendor_sensor_lib_file, vendor_file_type, file_type;
