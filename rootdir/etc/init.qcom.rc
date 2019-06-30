@@ -265,9 +265,9 @@ on post-fs-data
     chown system radio /sys/class/sec/sec_touchkey/boost_level
 
 # permission for Input Device(Wacom).
-    chmod 0660 /sys/class/input/input4/enabled
-    chown system system /sys/class/input/input4/enabled
-    chown system system /sys/class/input/input18/enabled
+    #chmod 0660 /sys/class/input/input4/enabled
+    #chown system system /sys/class/input/input4/enabled
+    #chown system system /sys/class/input/input18/enabled
 
 # permissions for S-Pen
     #chmod 0660 /sys/class/input/input3/enabled
