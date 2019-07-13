@@ -38,16 +38,7 @@ on early-init
 
     write /sys/block/zram0/comp_algorithm lz4
 
-    mkdir /firmware 0771 system system
-    mkdir /firmware-modem 0771 system system
-
-    mkdir /efs 0771 system radio
-
-    symlink /data/tombstones /tombstones
-
 on init
-    # Support legacy paths
-    symlink /sdcard /storage/sdcard0
 
     write /proc/sys/vm/page-cluster 0
 
@@ -1106,6 +1097,7 @@ on property:sys.boot_completed=1
 
     # Post boot services
     rm /data/system/perfd/default_values
+    setprop vendor.post_boot.parsed 1
     start mpdecision
 
     # Symlink directories to access telephony.db and preferred-apn.xml required by libsec-ril
