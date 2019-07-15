@@ -10,8 +10,8 @@ persist.vendor.audio.fluence.voicerec=false
 ro.vendor.audio.sdk.fluencetype=fluence
 vendor.dedicated.device.for.voip=true
 vendor.voice.path.for.pcm.voip=false
-#af.fast_track_multiplier=1
-#vendor.audio_hal.period_size=192
+af.fast_track_multiplier=1
+vendor.audio_hal.period_size=192
 ro.config.vc_call_vol_steps=7
 ro.config.media_vol_steps=25
 
