@@ -586,13 +586,13 @@
 	<path name="vr-main-mic">
 		<path name="main-mic" />
 		<ctl name="ADC1 Volume" value="12" />
-		<ctl name="DEC6 Volume" value="84" />
+		<ctl name="DEC6 Volume" value="96" />
 	</path>
 
 	<path name="vr-sub-mic">
 		<path name="sub-mic" />
 		<ctl name="ADC3 Volume" value="12" />
-		<ctl name="DEC4 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="96" />
 	</path>
 
 	<path name="vr-headset-mic">
@@ -739,9 +739,9 @@
 	<path name="voice-call-main-mic">
 		<path name="main-sub-mic" />
 		<ctl name="ADC1 Volume" value="12" />
-		<ctl name="DEC6 Volume" value="84" />
+		<ctl name="DEC6 Volume" value="96" />
 		<ctl name="ADC3 Volume" value="12" />
-		<ctl name="DEC4 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="96" />
 		<ctl name="TX3 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX4 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX5 HPF cut off" value="MIN_3DB_150Hz" />
@@ -753,9 +753,9 @@
 	<path name="voice-call-sub-mic">
 		<path name="sub-3rd-mic" />
 		<ctl name="ADC4 Volume" value="16" />
-		<ctl name="DEC3 Volume" value="84" />
+		<ctl name="DEC3 Volume" value="96" />
 		<ctl name="ADC3 Volume" value="16" />
-		<ctl name="DEC4 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="96" />
 		<ctl name="ES325-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="3" />
 		<ctl name="ES325 TX1 Enable" value="1" />
@@ -764,7 +764,7 @@
 	<path name="voice-call-headphone-mic">
 		<path name="main-mic" />
 		<ctl name="ADC1 Volume" value="12" />
-		<ctl name="DEC6 Volume" value="84" />
+		<ctl name="DEC6 Volume" value="96" />
 		<ctl name="TX3 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX4 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX5 HPF cut off" value="MIN_3DB_150Hz" />
@@ -789,9 +789,9 @@
 	<path name="voice-call-NS-mic-handset">
 		<path name="main-sub-mic" />
 		<ctl name="ADC1 Volume" value="12" />
-		<ctl name="DEC6 Volume" value="84" />
+		<ctl name="DEC6 Volume" value="96" />
 		<ctl name="ADC3 Volume" value="12" />
-		<ctl name="DEC4 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="96" />
 		<ctl name="TX3 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX4 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX5 HPF cut off" value="MIN_3DB_150Hz" />
@@ -803,9 +803,9 @@
 	<path name="voice-call-NS-mic-speaker">
 		<path name="sub-3rd-mic" />
 		<ctl name="ADC4 Volume" value="12" />
-		<ctl name="DEC3 Volume" value="84" />
+		<ctl name="DEC3 Volume" value="96" />
 		<ctl name="ADC3 Volume" value="12" />
-		<ctl name="DEC4 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="96" />
 		<ctl name="ES325-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="1" />
 		<ctl name="ES325 TX1 Enable" value="1" />
@@ -889,7 +889,7 @@
 		<ctl name="SLIM TX7 MUX" value="DEC6" />
 		<ctl name="DEC6 MUX" value="ADC1" />
 		<ctl name="ADC1 Volume" value="12" />
-		<ctl name="DEC6 Volume" value="84" />
+		<ctl name="DEC6 Volume" value="96" />
 		
 	</path>
 
@@ -899,13 +899,13 @@
                 <ctl name="SLIM TX7 MUX" value="DEC3" />
 		<ctl name="DEC3 MUX" value="ADC4" />
 		<ctl name="ADC4 Volume" value="16" />
-		<ctl name="DEC3 Volume" value="84" />
+		<ctl name="DEC3 Volume" value="96" />
 	</path>
 
 	<path name="video-call-headphone-mic">
 		<path name="main-mic" />
 		<ctl name="ADC1 Volume" value="12" />
-		<ctl name="DEC6 Volume" value="84" />
+		<ctl name="DEC6 Volume" value="96" />
 		<ctl name="ES325-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="0" />
 		<ctl name="ES325 TX1 Enable" value="1" />
@@ -924,27 +924,27 @@
 	<path name="video-call-NS-mic-handset">
 		<path name="main-sub-mic" />
 		<ctl name="ADC1 Volume" value="12" />
-		<ctl name="DEC6 Volume" value="84" />
+		<ctl name="DEC6 Volume" value="96" />
 		<ctl name="ADC3 Volume" value="12" />
-		<ctl name="DEC4 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="96" />
 		<ctl name="TX3 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX4 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX5 HPF cut off" value="MIN_3DB_150Hz" />
 	</path>
 
 	<path name="video-call-NS-mic-speaker">
-	<ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
-        <ctl name="SLIM_0_TX Channels" value="Two" />
-        <ctl name="SLIM TX7 MUX" value="DEC4" />
-        <ctl name="DEC4 MUX" value="ADC3" />
-        <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
-        <ctl name="SLIM TX8 MUX" value="DEC2" />
-        <ctl name="DEC2 MUX" value="ADC5" />
-        <ctl name="ADC5 Volume" value="16" />
-        <ctl name="DEC2 Volume" value="84" />
-        <ctl name="ADC3 Volume" value="15" />
-        <ctl name="DEC4 Volume" value="84" />
-	<ctl name="LINEOUT3 Volume" value="20" />
+		<ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
+		<ctl name="SLIM_0_TX Channels" value="Two" />
+		<ctl name="SLIM TX7 MUX" value="DEC4" />
+		<ctl name="DEC4 MUX" value="ADC3" />
+		<ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
+		<ctl name="SLIM TX8 MUX" value="DEC2" />
+		<ctl name="DEC2 MUX" value="ADC5" />
+		<ctl name="ADC5 Volume" value="16" />
+		<ctl name="DEC2 Volume" value="96" />
+		<ctl name="ADC3 Volume" value="15" />
+		<ctl name="DEC4 Volume" value="96" />
+		<ctl name="LINEOUT3 Volume" value="20" />
 	</path>
 	<!-- end of Video call Scenario  -->
 
@@ -1001,9 +1001,9 @@
 	<path name="VoLTE-voice-main-mic">
 		<path name="main-sub-mic" />
 		<ctl name="ADC1 Volume" value="12" />
-		<ctl name="DEC6 Volume" value="84" />
+		<ctl name="DEC6 Volume" value="96" />
 		<ctl name="ADC3 Volume" value="12" />
-		<ctl name="DEC4 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="96" />
 		<ctl name="ES325-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="4" />
 		<ctl name="ES325 TX1 Enable" value="1" />
@@ -1012,9 +1012,9 @@
 	<path name="VoLTE-voice-sub-mic">
 		<path name="sub-3rd-mic" />
 		<ctl name="ADC4 Volume" value="16" />
-		<ctl name="DEC3 Volume" value="84" />
+		<ctl name="DEC3 Volume" value="96" />
 		<ctl name="ADC3 Volume" value="16" />
-		<ctl name="DEC4 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="96" />
 		<ctl name="ES325-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="3" />
 		<ctl name="ES325 TX1 Enable" value="1" />
@@ -1023,7 +1023,7 @@
 	<path name="VoLTE-voice-headphone-mic">
 		<path name="main-mic" />
 		<ctl name="ADC1 Volume" value="17" />
-		<ctl name="DEC6 Volume" value="84" />
+		<ctl name="DEC6 Volume" value="96" />
 		<ctl name="ES325-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="0" />
 		<ctl name="ES325 TX1 Enable" value="1" />
@@ -1041,9 +1041,9 @@
 	<path name="VoLTE-voice-NS-mic-handset">
 		<path name="main-sub-mic" />
 		<ctl name="ADC1 Volume" value="12" />
-		<ctl name="DEC6 Volume" value="84" />
+		<ctl name="DEC6 Volume" value="96" />
 		<ctl name="ADC3 Volume" value="12" />
-		<ctl name="DEC4 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="96" />
 		<ctl name="TX3 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX4 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX5 HPF cut off" value="MIN_3DB_150Hz" />
@@ -1055,9 +1055,9 @@
 	<path name="VoLTE-voice-NS-mic-speaker">
 		<path name="sub-3rd-mic" />
 		<ctl name="ADC4 Volume" value="16" />
-		<ctl name="DEC3 Volume" value="84" />
+		<ctl name="DEC3 Volume" value="96" />
 		<ctl name="ADC3 Volume" value="16" />
-		<ctl name="DEC4 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="96" />
 		<ctl name="TX3 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX4 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX5 HPF cut off" value="MIN_3DB_150Hz" />
@@ -1119,9 +1119,9 @@
 	<path name="VoLTE-video-main-mic">
 		<path name="main-sub-mic" />
 		<ctl name="ADC1 Volume" value="12" />
-		<ctl name="DEC6 Volume" value="84" />
+		<ctl name="DEC6 Volume" value="96" />
 		<ctl name="ADC3 Volume" value="12" />
-		<ctl name="DEC4 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="96" />
 		<ctl name="TX3 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX4 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX5 HPF cut off" value="MIN_3DB_150Hz" />
@@ -1133,9 +1133,9 @@
 	<path name="VoLTE-video-sub-mic">
 		<path name="sub-3rd-mic" />
 		<ctl name="ADC4 Volume" value="16" />
-		<ctl name="DEC3 Volume" value="84" />
+		<ctl name="DEC3 Volume" value="96" />
 		<ctl name="ADC3 Volume" value="16" />
-		<ctl name="DEC4 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="96" />
 		<ctl name="ES325-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="3" />
 		<ctl name="ES325 TX1 Enable" value="1" />
@@ -1144,7 +1144,7 @@
 	<path name="VoLTE-video-headphone-mic">
 		<path name="main-mic" />
 		<ctl name="ADC1 Volume" value="17" />
-		<ctl name="DEC6 Volume" value="84" />
+		<ctl name="DEC6 Volume" value="96" />
 		<ctl name="ES325-AP Tx Channels" value="One" />
 		<ctl name="Internal Route Config" value="0" />
 		<ctl name="ES325 TX1 Enable" value="1" />
@@ -1162,9 +1162,9 @@
 	<path name="VoLTE-video-NS-mic-handset">
 		<path name="main-sub-mic" />
 		<ctl name="ADC1 Volume" value="12" />
-		<ctl name="DEC6 Volume" value="84" />
+		<ctl name="DEC6 Volume" value="96" />
 		<ctl name="ADC3 Volume" value="12" />
-		<ctl name="DEC4 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="96" />
 		<ctl name="TX3 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX4 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX5 HPF cut off" value="MIN_3DB_150Hz" />
@@ -1176,9 +1176,9 @@
 	<path name="VoLTE-video-NS-mic-speaker">
 		<path name="sub-3rd-mic" />
 		<ctl name="ADC4 Volume" value="16" />
-		<ctl name="DEC3 Volume" value="84" />
+		<ctl name="DEC3 Volume" value="96" />
 		<ctl name="ADC3 Volume" value="16" />
-		<ctl name="DEC4 Volume" value="84" />
+		<ctl name="DEC4 Volume" value="96" />
 		<ctl name="TX3 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX4 HPF cut off" value="MIN_3DB_150Hz" />
 		<ctl name="TX5 HPF cut off" value="MIN_3DB_150Hz" />
