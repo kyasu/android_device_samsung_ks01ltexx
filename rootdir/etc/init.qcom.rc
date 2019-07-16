@@ -51,7 +51,6 @@ on init
 
 on fs
     mount_all fstab.qcom
-    swapon_all fstab.qcom
 
     restorecon_recursive /efs
 
@@ -1039,6 +1038,9 @@ on property:wlan.driver.status=ok
 # end of wifi
 
 on property:sys.boot_completed=1
+    # Enable ZRAM on boot_complete
+    swapon_all fstab.qcom
+
     setprop sys.io.scheduler bfq
 
     # Configure the hardware properly
