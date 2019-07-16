@@ -293,7 +293,4 @@
     <!-- reference volume index for music stream to limit headphone volume and display warning -->
     <integer name="config_safe_media_volume_index">15</integer>
 
-    <!-- Audio panel view placement. Is left side enabled -->
-    <bool name="config_audioPanelOnLeftSide">true</bool>
-
 </resources>
