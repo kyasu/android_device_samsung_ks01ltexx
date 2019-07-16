@@ -10,23 +10,19 @@ persist.vendor.audio.fluence.voicerec=false
 ro.vendor.audio.sdk.fluencetype=fluence
 vendor.dedicated.device.for.voip=true
 vendor.voice.path.for.pcm.voip=false
-#af.fast_track_multiplier=1
-#vendor.audio_hal.period_size=192
+af.fast_track_multiplier=1
+vendor.audio_hal.period_size=192
 ro.config.vc_call_vol_steps=7
 ro.config.media_vol_steps=25
 
 # Audio (Media)
 audio.offload.disable=true
-audio.offload.buffer.size.kb=32
 audio.offload.pcm.16bit.enable=true
 audio.offload.pcm.24bit.enable=true
 audio.offload.video=true
-media.aac_51_output_enabled=true
-mm.enable.smoothstreaming=true
-tunnel.audio.encode=true
-vendor.audio.av.streaming.offload.enable=true
-vendor.audio.offload.multiple.enabled=true
+vendor.audio.offload.buffer.size.kb=32
 vendor.audio.offload.gapless.enabled=true
+vendor.audio.offload.multiple.enabled=false
 
 # Camera
 camera2.portability.force_api=1
