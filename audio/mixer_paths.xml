@@ -252,6 +252,11 @@
 		<ctl name="AUX PCM SampleRate" value="rate_16000" />
 		<path name="audio-record bt-sco" />
 	</path>
+
+	<path name="low-latency-record">
+		<ctl name="MultiMedia1 Mixer SLIM_0_TX" value="1" />
+	</path>
+
 	<!-- call part -->
 	<path name="voice-call">
 		<ctl name="SLIM_0_RX_Voice Mixer CSVoice" value="1" />
