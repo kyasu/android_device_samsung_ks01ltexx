@@ -20,8 +20,10 @@
 
 #define BTM_DEF_LOCAL_NAME   "Galaxy S4 LTE-A"
 
-#define BTA_DISABLE_DELAY 1000 /* in milliseconds */
-#define BTM_WBS_INCLUDED TRUE       /* Enable WBS */
-#define BTIF_HF_WBS_PREFERRED FALSE /* Do not prefer WBS */
+#define BTA_DISABLE_DELAY 100 /* in milliseconds */
+#define BTM_SCO_ENHANCED_SYNC_ENABLED FALSE
+#define BTM_WBS_INCLUDED TRUE
+#define BTIF_HF_WBS_PREFERRED TRUE
+#define BLE_VND_INCLUDED TRUE
 
 #endif
