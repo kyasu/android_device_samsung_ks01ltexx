@@ -82,7 +82,7 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
 JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(DEVICE_PATH)/lineagehw|**/*.java
 
 # NFC
-include $(DEVICE_PATH)/nfc/bcm2079x/board.mk
+BOARD_NFC_HAL_SUFFIX := msm8974
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
