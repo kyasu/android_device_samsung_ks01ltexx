@@ -448,7 +448,7 @@ on early-boot
 
     # Auto Brightness
     chown system system  /sys/class/backlight/panel/auto_brightness
-    chmod 0660 /sys/class/backlight/panel/auto_brightness
+    chmod 0664 /sys/class/backlight/panel/auto_brightness
 
     # Permissions for TCON
     chown system system /sys/class/tcon/tcon/lux
