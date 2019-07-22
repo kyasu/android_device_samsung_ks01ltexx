@@ -283,4 +283,6 @@
     <!-- Whether the display blanks itself when transitioning from a doze to a non-doze state -->
     <bool name="config_displayBlanksAfterDoze">true</bool>
 
+    <!-- Enable Doze and App Standby -->
+    <bool name="config_enableAutoPowerModes">true</bool>
 </resources>
