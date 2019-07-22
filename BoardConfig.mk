@@ -27,7 +27,7 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 zcache.enabled=1 zcache.compressor=lz4
+BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 zcache.enabled=1 zcache.compressor=lz4
 ifeq ($(RECOVERY_VARIANT),twrp)
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 endif
@@ -82,7 +82,7 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
 JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(DEVICE_PATH)/lineagehw|**/*.java
 
 # NFC
-BOARD_NFC_HAL_SUFFIX := msm8974
+include $(DEVICE_PATH)/nfc/bcm2079x/board.mk
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
