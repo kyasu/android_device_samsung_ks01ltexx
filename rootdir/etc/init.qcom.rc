@@ -420,6 +420,8 @@ on early-boot
     chown system system  /sys/class/mdnie/mdnie/cabc
     chown system system  /sys/class/mdnie/mdnie/bypass
 
+    chown system media_rw /sys/class/backlight/panel/weakness_hbm_comp
+    chown system system /sys/class/lcd/panel/panel/auto_brightness
     chown system system /sys/class/lcd/panel/window_type
     chown radio system /sys/class/lcd/panel/power_reduce
     chown radio system /sys/class/lcd/panel/siop_enable
@@ -455,6 +457,10 @@ on early-boot
     # LCD ALPM Mode
     chown system system /sys/class/lcd/panel/alpm
     chmod 0660 /sys/class/lcd/panel/alpm
+
+    # Permissions for LCD
+    chown system system /sys/class/lcd/panel/adaptive_control
+    chmod 0660 /sys/class/lcd/panel/adaptive_control
 
     # Auto Brightness
     chown system system  /sys/class/backlight/panel/auto_brightness
@@ -511,10 +517,24 @@ on early-boot
     chown system system /sys/class/camera/rear/rear_companionfw_full
     chown system system /sys/class/camera/rear/rear_calcheck
     chown system system /sys/class/camera/rear/rear_fwcheck
+    chown system system /sys/class/camera/rear/rear_afcal
     chown system system /sys/class/camera/rear/isp_core
     chown system radio /sys/class/camera/flash/rear_flash
+    chown system radio /sys/class/camera/flash/rear_vendorid
     chown system system /sys/class/camera/front/front_camfw
     chown system system /sys/class/camera/front/front_camtype
+    chown system system /sys/class/camera/front/front_camfw_full
+    chown system system /sys/class/camera/front/front_camfw_load
+    chown system system /sys/class/camera/front/front_checkfw_user
+    chown system system /sys/class/camera/front/front_checkfw_factory
+    chown system system /sys/class/camera/front/front_caminfo
+    chown system system /sys/class/camera/ois/ois_diff
+    chown system system /sys/class/camera/ois/ois_exif
+    chown system system /sys/class/camera/ois/ois_rawdata
+    chown system system /sys/class/camera/ois/oisfw
+    chown system system /sys/class/camera/ois/selftest
+    chown system system /sys/class/camera/ois/load_fw
+    chown system system /sys/class/camera/ois/ois_power
 
     # Permissions for Audio
     chown system system /sys/devices/fe12f000.slim/es705-codec-gen0/keyword_grammar_path
