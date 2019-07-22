@@ -43,6 +43,7 @@ ro.secwvk=144
 ro.sf.lcd_density=480
 debug.hwui.use_buffer_age=false
 persist.graphics.vulkan.disable=true
+debug.sf.enable_gl_backpressure=1
 
 # GPS
 persist.gps.qc_nlp_in_use=0
