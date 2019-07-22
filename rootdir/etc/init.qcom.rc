@@ -74,14 +74,6 @@ on post-fs-data
     mkdir /data/vendor/wifi/wpa 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
 
-    # Create the directories used by CnE subsystem
-    mkdir /data/connectivity 0771 system system
-    chown system system /data/connectivity
-
-    # for WIFI TRP/TIS
-    chown system root /data/.psm.info
-    chmod 0664 /data/.psm.info
-
     # for WIFI Antena Selection
     chown system root /data/.ant.info
     chmod 0664 /data/.ant.info
@@ -147,10 +139,6 @@ on post-fs-data
     #Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
     mkdir /data/system 0775 system system
 
-    #Create directory from IMS services
-    mkdir /data/shared 0755
-    chown system system /data/shared
-
     #Create directory for FOTA
     mkdir /data/fota 0771
     chown system system /data/fota
@@ -162,7 +150,6 @@ on post-fs-data
     # Enable the setgid bit on the directory
     chmod 2770 /data/bluetooth
 
-    mkdir /data/audio/ 0770 media audio
     # Enable the setgid bit on the directory
     chmod 2770 /data/audio
 
@@ -204,6 +191,7 @@ on post-fs-data
     chmod 0644 /efs/redata.bin
     chown radio radio /efs/h2k.dat
     chmod 0644 /efs/h2k.dat
+    chown radio radio /efs/h2k.dat
 
     # DRK permission
     mkdir /efs/prov 0770 radio system
@@ -262,23 +250,6 @@ on early-boot
     # Allow subsystem (modem etc) debugging
     write /sys/module/subsystem_restart/parameters/enable_debug ${persist.sys.ssr.enable_debug}
 
-on boot
-    chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
-    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
-    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
-    chown bluetooth bluetooth /proc/bluetooth/sleep/proto
-    chown bluetooth bluetooth /sys/module/hci_uart/parameters/ath_lpm
-    chown bluetooth bluetooth /sys/module/hci_uart/parameters/ath_btwrite
-    chown system system /sys/module/sco/parameters/disable_esco
-    chown bluetooth bluetooth /sys/module/hci_smd/parameters/hcismd_set
-    chmod 0660 /sys/module/bluetooth_power/parameters/power
-    chmod 0660 /sys/module/hci_smd/parameters/hcismd_set
-    chmod 0660 /sys/class/rfkill/rfkill0/state
-    chmod 0660 /proc/bluetooth/sleep/proto
-    chmod 0660 /sys/module/hci_uart/parameters/ath_lpm
-    chmod 0660 /sys/module/hci_uart/parameters/ath_btwrite
-    chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
-
     # for BT MAC address
     mkdir /efs/bluetooth 0775 radio system
     # if already exist
@@ -286,14 +257,10 @@ on boot
     chmod 0775 /efs/bluetooth
 
     #Create QMUX deamon socket area
-    mkdir /dev/socket/qmux_radio 0770 radio radio
-    chmod 2770 /dev/socket/qmux_radio
-    mkdir /dev/socket/qmux_audio 0770 media audio
-    chmod 2770 /dev/socket/qmux_audio
-    mkdir /dev/socket/qmux_bluetooth 0770 bluetooth bluetooth
-    chmod 2770 /dev/socket/qmux_bluetooth
-    mkdir /dev/socket/qmux_gps 0770 gps gps
-    chmod 2770 /dev/socket/qmux_gps
+    mkdir /dev/socket/qmux_radio 2770 radio radio
+    mkdir /dev/socket/qmux_audio 2770 media audio
+    mkdir /dev/socket/qmux_bluetooth 2770 bluetooth bluetooth
+    mkdir /dev/socket/qmux_gps 2770 gps gps
 
     # Allow QMUX daemon to assign port open wait time
     chown radio radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
@@ -307,11 +274,6 @@ on boot
 
     #Remove SUID bit for iproute2 ip tool
     chmod 0755 /system/bin/ip
-
-    chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
-
-    #For bridgemgr daemon to inform the USB driver of the correct transport
-    chown radio radio /sys/class/android_usb/f_rmnet_smd_sdio/transport
 
     # create symlink for fb1 as HDMI
     symlink /dev/graphics/fb1 /dev/graphics/hdmi
@@ -347,7 +309,6 @@ on boot
     write /proc/sys/net/ipv6/conf/rmnet5/accept_ra 2
     write /proc/sys/net/ipv6/conf/rmnet6/accept_ra 2
     write /proc/sys/net/ipv6/conf/rmnet7/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_usb0/accept_ra 2
 
     # To prevent out of order acknowledgements from making
     # connection tracking to treat them as not belonging to
@@ -443,10 +404,6 @@ on boot
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
     chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 
-    # Auto Brightness
-    chown system system  /sys/class/backlight/panel/auto_brightness
-    chmod 0660 /sys/class/backlight/panel/auto_brightness
-
     # LCD mdnie and panel work
     chown system system  /sys/class/mdnie/mdnie/lcdtype
     chown system system  /sys/class/mdnie/mdnie/lcd_power
@@ -462,12 +419,6 @@ on boot
     chown system system /sys/class/mdnie/mdnie/accessibility
     chown system system  /sys/class/mdnie/mdnie/cabc
     chown system system  /sys/class/mdnie/mdnie/bypass
-
-    chown system system /sys/class/lcd/panel/window_type
-    chown radio system /sys/class/lcd/panel/power_reduce
-    chown radio system /sys/class/lcd/panel/siop_enable
-    chown radio system /sys/class/lcd/panel/temperature
-    chown radio system /sys/class/lcd/panel/tuning
 
     chown system system /sys/class/lcd/panel/window_type
     chown radio system /sys/class/lcd/panel/power_reduce
@@ -539,10 +490,6 @@ on boot
     chown system media_rw /sys/class/graphics/fb0/csc_cfg
     chmod 0660 /sys/class/graphics/fb0/csc_cfg
 
-    #OTG Test
-    chown system radio /sys/class/host_notify/usb_otg/booster
-    chmod 0660 /sys/class/host_notify/usb_otg/booster
-
     #Essential node for usbservice
     mkdir /dev/bus/ 0755 root root
     mkdir /dev/bus/usb 0755 root root
@@ -568,10 +515,6 @@ on boot
     chown system radio /sys/class/camera/flash/rear_flash
     chown system system /sys/class/camera/front/front_camfw
     chown system system /sys/class/camera/front/front_camtype
-
-    #OTG Test
-    chown system radio /sys/class/host_notify/usb_otg/booster
-    chmod 0660 /sys/class/host_notify/usb_otg/booster
 
     # Permissions for Audio
     chown system system /sys/devices/fe12f000.slim/es705-codec-gen0/keyword_grammar_path
@@ -764,9 +707,6 @@ on boot
     chown system radio /sys/class/power_supply/ps/status
     chmod 0664 /sys/class/power_supply/ps/status
 
-    # Permission for fast dormancy for RIL
-    chown system radio /sys/devices/virtual/sec/bamdmux/waketime
-
     # Permissions for gpio_keys
     chown system radio /sys/class/sec/sec_key/wakeup_keys
     write /sys/class/sec/sec_key/wakeup_keys 114,115,116,172
@@ -781,11 +721,6 @@ on boot
 
     # HDCP 2.x
     mkdir /data/system/hdcp2 0775 system system
-
-    # h2k permission
-    chown radio system /efs/redata.bin
-    chmod 0644 /efs/h2k.dat
-    mkdir /data/misc/radio/hatp 0775 radio system
 
     # Vibrator
     chmod 0660 /sys/class/timed_output/vibrator/pwm_value
