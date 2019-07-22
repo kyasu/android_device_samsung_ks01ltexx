@@ -287,6 +287,9 @@ vendor/lib/liblbs_core.so|3dea19e84a0d226ea3e5c92ec169f7e0fdbe5699
 etc/sec_config:vendor/etc/sec_config
 bin/irsc_util:vendor/bin/irsc_util
 
+# IPv6 Tethering
+bin/radish:vendor/bin/radish
+
 # IR
 lib/hw/consumerir.default.so:vendor/lib/hw/consumerir.msm8974.so
 
