@@ -355,16 +355,6 @@ on early-boot
     # bcmtch15xxx TSP
     chown system system /sys/class/input/input0/enabled
 
-
-
-
-
-
-
-
-
-
-
     chown radio system /sys/devices/system/cpu/kernel_max
     chmod 664 /sys/devices/system/cpu/kernel_max
 
