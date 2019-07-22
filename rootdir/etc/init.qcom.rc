@@ -968,6 +968,9 @@ service charger /charger
     class charger
     seclabel u:r:charger:s0
 
+on property:dev.bootcomplete=1
+    trigger enable-low-power
+
 on property:persist.sys.ssr.restart_level=1
     write /sys/module/subsystem_restart/parameters/restart_level 1
 
