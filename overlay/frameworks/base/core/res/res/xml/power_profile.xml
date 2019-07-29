@@ -1,62 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <device name="Android">
+    <!-- All values are in mAh except as noted -->
+
+    <!-- Nothing -->
     <item name="none">0</item>
-    <item name="screen.on">131.3</item>
-    <item name="bluetooth.active">116</item>
-    <item name="bluetooth.on">0.4</item>
-    <item name="screen.full">131</item>
-    <item name="wifi.on">0.5</item>
-    <item name="wifi.active">185</item>
-    <item name="wifi.scan">112</item>
-    <item name="dsp.audio">44</item>
-    <item name="dsp.video">265</item>
-    <item name="radio.active">144</item>
-    <item name="radio.scanning">23.4</item>
-    <item name="gps.on">0.3</item>
-    <array name="radio.on">
-        <value>5.5</value>
-        <value>5.5</value>
-    </array>
+
+    <!-- This is the battery capacity in mAh -->
+    <item name="battery.capacity">2600</item>
+
+    <!-- Power consumption when CPU is suspended -->
+    <item name="cpu.suspend">4</item>
+
+    <!-- Different CPU speeds as reported in
+         /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies -->
     <item name="cpu.clusters.cores">4</item>
     <array name="cpu.core_speeds.cluster0">
-        <value>2265600</value>
-        <value>1958400</value>
-        <value>1728000</value>
-        <value>1574400</value>
-        <value>1497600</value>
-        <value>1267200</value>
-        <value>1190400</value>
-        <value>1036800</value>
-        <value>960000</value>
-        <value>883200</value>
-        <value>729600</value>
-        <value>652800</value>
-        <value>422400</value>
-        <value>300000</value>
+        <value>300000</value> <!-- 300 MHz CPU speed -->
+        <value>422400</value> <!-- 422 MHz CPU speed -->
+        <value>652800</value> <!-- 652 MHz CPU speed -->
+        <value>729600</value> <!-- 729 MHz CPU speed -->
+        <value>883200</value> <!-- 883 MHz CPU speed -->
+        <value>960000</value> <!-- 960 MHz CPU speed -->
+        <value>1036800</value> <!-- 1036 MHz CPU speed -->
+        <value>1190400</value> <!-- 1190 MHz CPU speed -->
+        <value>1267200</value> <!-- 1267 MHz CPU speed -->
+        <value>1497600</value> <!-- 1497 MHz CPU speed -->
+        <value>1574400</value> <!-- 1574 MHz CPU speed -->
+        <value>1728000</value> <!-- 1728 MHz CPU speed -->
+        <value>1958400</value> <!-- 1958 MHz CPU speed -->
+        <value>2265600</value> <!-- 2265 MHz CPU speed -->
     </array>
-    <item name="cpu.suspend">4</item>
+
+    <!-- Additional power used by CPUs when running at different speeds. -->
     <array name="cpu.core_power.cluster0">
-        <value>433</value>
-        <value>353</value>
-        <value>315</value>
-        <value>289</value>
-        <value>275</value>
-        <value>250</value>
-        <value>195</value>
-        <value>194</value>
-        <value>193</value>
-        <value>148</value>
-        <value>137</value>
-        <value>97</value>
-        <value>78</value>
         <value>51</value>
+        <value>78</value>
+        <value>97</value>
+        <value>137</value>
+        <value>148</value>
+        <value>193</value>
+        <value>194</value>
+        <value>195</value>
+        <value>250</value>
+        <value>275</value>
+        <value>289</value>
+        <value>315</value>
+        <value>353</value>
+        <value>433</value>
     </array>
-    <item name="battery.capacity">2600</item>
+
+    <!-- Additional power used when screen is turned on at minimum brightness -->
+    <item name="screen.on">131.3</item>
+    <!-- Additional power used when screen is at maximum brightness, compared to
+         screen at minimum brightness -->
+    <item name="screen.full">131</item>
+
+    <!-- Additional power used when audio decoding/encoding via DSP -->
+    <item name="dsp.audio">44</item>
+    <!-- Additional power used when video decoding via DSP -->
+    <item name="dsp.video">265</item>
+
+    <!-- Additional power used when GPS is acquiring a signal -->
+    <item name="gps.on">0.3</item>
+
+    <!-- Additional power used when Wi-Fi is turned on but not receiving,
+         transmitting, or scanning -->
+    <item name="wifi.on">0.5</item>
+    <!-- Additional power used when transmitting or receiving over Wi-Fi -->
+    <item name="wifi.active">185</item>
+    <!-- Additional power used when Wi-Fi is scanning for access points -->
+    <item name="wifi.scan">112</item>
+    <!-- mA.  Current figures based on .0801 s/c and 75.48mA while scanning -->
     <array name="wifi.batchedscan">
         <value>.0002</value>
         <value>.002</value>
         <value>.02</value>
         <value>.2</value>
         <value>2</value>
+    </array>
+
+    <!-- Additional power used when cellular radio is transmitting/receiving -->
+    <item name="radio.active">144</item>
+    <!-- The current consumed by the radio when it is scanning for a signal -->
+    <item name="radio.scanning">23.4</item>
+    <!-- Current consumed by the radio at different signal strengths, when paging -->
+    <array name="radio.on"> <!-- Strength 0 to BINS-1 -->
+        <value>5.5</value>
+        <value>5.5</value>
     </array>
 </device>
