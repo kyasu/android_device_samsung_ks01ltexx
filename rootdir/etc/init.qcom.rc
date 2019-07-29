@@ -705,7 +705,6 @@ on boot
     chown system radio /sys/class/sec/sec_barcode_emul/barcode_ver_check
 
 # NFC_NXP
-    setprop ro.nfc.port "I2C"
     chmod 0600 /dev/pn547
     chown nfc nfc /dev/pn547
 
@@ -826,14 +825,9 @@ on boot
     mkdir /data/system/perfd 0770 root system
     chmod 2770 /data/system/perfd
 
-    setprop wifi.interface wlan0
-
 #   Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
     setprop net.tcp.buffersize.wifi     524288,1048576,4525824,524288,1048576,4525824
-
-
-    setprop ro.telephony.call_ring.multiple false
 
     #Set SUID bit for usbhub
     chmod 4755 /system/bin/usbhub
