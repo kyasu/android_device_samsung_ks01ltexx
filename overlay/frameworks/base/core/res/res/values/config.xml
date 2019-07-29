@@ -277,16 +277,20 @@
     <!-- reference volume index for music stream to limit headphone volume and display warning -->
     <integer name="config_safe_media_volume_index">15</integer>
 
-    <!-- Default list of files pinned by the Pinner Service -->
+        <!-- Default list of files pinned by the Pinner Service -->
     <string-array translatable="false" name="config_defaultPinnerServiceFiles">
-        <item>"/system/framework/arm/boot-framework.oat"</item>
-        <item>"/system/framework/boot-framework.vdex"</item>
-        <item>"/system/framework/oat/arm/services.odex"</item>
-        <item>"/system/framework/oat/arm/services.vdex"</item>
-        <item>"/system/framework/arm/boot.oat"</item>
-        <item>"/system/framework/boot.vdex"</item>
-        <item>"/system/framework/arm/boot-core-libart.oat"</item>
-        <item>"/system/framework/boot-core-libart.vdex"</item>
+        <!-- boot -->
+        <item>"/system/framework/boot.vdex"</item>            <!-- 4.158.376 -->
+        <item>"/system/framework/arm/boot.oat"</item>         <!-- 4.008.336 -->
+        <!-- boot-framework -->
+        <item>"/system/framework/boot-framework.vdex"</item>     <!-- 18.893.636 -->
+        <item>"/system/framework/arm/boot-framework.oat"</item>  <!-- 13.060.208 -->
+        <!-- services -->
+        <item>"/system/framework/oat/arm/services.odex"</item>   <!-- 20.733.436 -->
+        <item>"/system/framework/oat/arm/services.vdex"</item>   <!--  8.622.988 -->
+        <item>"/system/framework/arm/boot-core-libart.oat"</item><!--  1.638.728 -->
+        <item>"/system/framework/boot-core-libart.vdex"</item>   <!--  2.754.164 -->
+        <!-- surfaceflinger -->
         <item>"/system/lib/libsurfaceflinger.so"</item>
     </string-array>
 </resources>
