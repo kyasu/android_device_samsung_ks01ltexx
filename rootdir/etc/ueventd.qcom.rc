@@ -136,7 +136,7 @@
 /dev/msm_preproc_ctl      0660   system     audio
 /dev/msm_rtac             0660   system     audio
 /dev/msm_voicememo        0660   system     audio
-/dev/radio0               0640   fm_radio   fm_radio
+#/dev/radio0              0640   fm_radio   fm_radio
 /dev/smd3                 0660   bluetooth  bluetooth
 /dev/smd2                 0660   bluetooth  bluetooth
 /dev/ttyHSL1              0660   system     system
@@ -159,6 +159,9 @@
 # Broadcast devices
 /dev/tsc_mux0             0660   media       media
 /dev/tsc_ci0              0660   media       media
+
+# Vibrator
+/dev/tspdrv               0660   root        shell
 
 # sensors
 /sys/devices/i2c-12/12-*  pollrate_ms 0664 system system
