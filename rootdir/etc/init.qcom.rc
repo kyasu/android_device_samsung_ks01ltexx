@@ -252,6 +252,7 @@ on post-fs-data
     chown radio system /sys/class/sec/sec_touchkey/touchkey_firm_update
     chown system radio /sys/class/sec/sec_touchkey/glove_mode
     chown system radio /sys/class/sec/sec_touchkey/flip_mode
+    chown system radio /sys/class/sec/sec_touchkey/1mm_mode
     chown system radio /sys/class/sec/sec_touchkey/boost_level
 
 # permission for Input Device(Wacom).
