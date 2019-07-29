@@ -313,19 +313,19 @@ on post-fs-data
     chmod 0660 /sys/class/input/input18/enabled
 
     # Vibrator
-    chmod 0660 /sys/class/timed_output/vibrator/pwm_value
-    chown system system /sys/class/timed_output/vibrator/pwm_value
-    chmod 0440 /sys/class/timed_output/vibrator/pwm_max
-    chown system system /sys/class/timed_output/vibrator/pwm_max
-    chmod 0440 /sys/class/timed_output/vibrator/pwm_min
-    chown system system /sys/class/timed_output/vibrator/pwm_min
-    chmod 0440 /sys/class/timed_output/vibrator/pwm_default
-    chown system system /sys/class/timed_output/vibrator/pwm_default
-    chmod 0440 /sys/class/timed_output/vibrator/pwm_threshold
-    chown system system /sys/class/timed_output/vibrator/pwm_threshold
     chown system system /sys/class/timed_output/vibrator/enable
+    chown system system /sys/class/timed_output/vibrator/pwm_default
+    chown system system /sys/class/timed_output/vibrator/pwm_max
+    chown system system /sys/class/timed_output/vibrator/pwm_min
+    chown system system /sys/class/timed_output/vibrator/pwm_threshold
+    chown system system /sys/class/timed_output/vibrator/pwm_value
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_default
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_max
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_min
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_threshold
+    chmod 0660 /sys/class/timed_output/vibrator/pwm_value
 
-    #Create directories for wiper services
+    # Create directories for wiper services
     mkdir /data/wpstiles/ 0755 shell
     mkdir /data/wiper 0755 gps qcom_oncrpc
 
@@ -497,7 +497,6 @@ on boot
     chown system radio /sys/class/tcon/tcon/black_test
     chown system radio /sys/class/tcon/tcon/tcon_test
 
-    chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/class/leds/keyboard-backlight/brightness
     chown system system /sys/class/leds/lcd-backlight/brightness
     chown system system /sys/class/leds/button-backlight/brightness
@@ -514,7 +513,6 @@ on boot
     chown system system /sys/class/sec/led/led_pattern
     chown system system /sys/class/sec/led/led_blink
     chown system system /sys/class/sec/led/led_lowpower
-    chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/module/sco/parameters/disable_esco
     chown system system /sys/kernel/ipv4/tcp_wmem_min
     chown system system /sys/kernel/ipv4/tcp_wmem_def
@@ -789,20 +787,6 @@ on boot
     chown system radio /sys/class/sec/sec_key/wakeup_keys
     write /sys/class/sec/sec_key/wakeup_keys 116,172
     chown system radio /sys/class/sec/sec_key/hall_irq_ctrl
-
-    # Vibetonz
-    chmod 0660 /dev/tspdrv
-    chown root shell /dev/tspdrv
-	chown system system /sys/class/timed_output/vibrator/pwm_value
-	chmod 0660 /sys/class/timed_output/vibrator/pwm_value
-    chown system system /sys/class/timed_output/vibrator/pwm_max
-	chmod 0660 /sys/class/timed_output/vibrator/pwm_max
-	chown system system /sys/class/timed_output/vibrator/pwm_min
-	chmod 0660 /sys/class/timed_output/vibrator/pwm_min
-	chown system system /sys/class/timed_output/vibrator/pwm_default
-	chmod 0660 /sys/class/timed_output/vibrator/pwm_default
-	chown system system /sys/class/timed_output/vibrator/pwm_threshold
-	chmod 0660 /sys/class/timed_output/vibrator/pwm_threshold
 
     # Panel color temperature
     chmod 0660 /sys/class/lcd/panel/panel_colors
