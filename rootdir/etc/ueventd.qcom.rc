@@ -185,8 +185,11 @@
 /dev/rfkill               0600   wifi       wifi
 /dev/wcnss_wlan           0660   system     system
 
-#nfc permissions
-/dev/nfc-nci              0660    nfc         nfc
+# nfc permissions
+/dev/nfc-nci              0660    nfc        nfc
+
+# bcm2079x
+/dev/bcm2079x             0660    nfc        nfc
 
 # UIO devices
 /dev/uio0                 0660   system     system
@@ -384,4 +387,3 @@ v/ppp                  0660   radio      vpn
 /sys/devices/f9968000.i2c/i2c-12/12-0068/iio:device* dmp_firmware                       0660   system     radio
 /sys/devices/f9968000.i2c/i2c-12/12-0068/iio:device* pedometer_int_thresh               0660   system     radio
 /sys/devices/f9968000.i2c/i2c-12/12-0068/iio:device* pedometer_step_thresh              0660   system     radio
-
