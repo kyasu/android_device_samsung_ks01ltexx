@@ -50,9 +50,13 @@ TARGET_USE_SDCLANG := true
 # Enable SVELTE memory configuration
 MALLOC_SVELTE := true
 
-
 # Audio
 USE_CUSTOM_AUDIO_POLICY := 1
+
+# Disable Scudo outside of eng builds to save RAM.
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
+  PRODUCT_DISABLE_SCUDO := true
+endif
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
