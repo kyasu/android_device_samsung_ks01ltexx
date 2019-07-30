@@ -1122,7 +1122,8 @@ on property:ro.data.large_tcp_window_size=true
 
 service charger /system/bin/charger
     class charger
-    group system graphics
+    user system
+    group system graphics input
     seclabel u:r:charger:s0
 
 # Disable SSR to SoC restart
