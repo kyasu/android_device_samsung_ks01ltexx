@@ -16,6 +16,10 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
+# GPS (override msm8974-common)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
+
 # Inherit from msm8974-common
 $(call inherit-product, device/samsung/msm8974-common/msm8974.mk)
 
