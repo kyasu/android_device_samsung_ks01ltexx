@@ -99,7 +99,6 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Radio
 BOARD_PROVIDES_LIBRIL := true
-TARGET_RIL_VARIANT := caf
 
 #RECOVERY_VARIANT := twrp
 # Recovery
