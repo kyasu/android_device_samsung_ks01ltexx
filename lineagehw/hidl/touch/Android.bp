@@ -13,8 +13,8 @@
 // limitations under the License.
 
 cc_binary {
-    name: "vendor.lineage.touch@1.0-service.samsung",
-    init_rc: ["vendor.lineage.touch@1.0-service.samsung.rc"],
+    name: "vendor.lineage.touch@1.0-service.ks01lte",
+    init_rc: ["vendor.lineage.touch@1.0-service.ks01lte.rc"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     // FIXME: this should be 'vendor: true' for modules that will eventually be
