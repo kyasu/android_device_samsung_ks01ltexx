@@ -11,6 +11,7 @@
 
 # sysfs
 /sys/devices(/.*)?/input/input[2-4]/enabled             u:object_r:sysfs_hal_pwr:s0
+/sys/devices/virtual/sec/sec_touchkey/keypad_enable     u:object_r:sysfs_sec_touchkey:s0
 
 # Sensor Library
 /(vendor|system/vendor)/lib/libsensirion_ks01_eur.so    u:object_r:vendor_sensor_lib_file:s0
