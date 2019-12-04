@@ -185,7 +185,7 @@ PRODUCT_PACKAGES += \
 
 # Touch features
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.samsung
+    vendor.lineage.touch@1.0-service.ks01lte
 
 # Trust HAL
 PRODUCT_PACKAGES += \
