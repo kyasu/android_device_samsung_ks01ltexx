@@ -21,7 +21,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
 
 # Inherit from msm8974-common
-$(call inherit-product, device/samsung/msm8974-common/msm8974.mk)
+$(call inherit-product, device/samsung/ks01ltexx/msm8974-common/msm8974.mk)
 
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/samsung/ks01ltexx/ks01ltexx-vendor.mk)
