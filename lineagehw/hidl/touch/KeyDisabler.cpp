@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-#include <fstream>
+#include <android-base/file.h>
+#include <android-base/logging.h>
+#include <android-base/strings.h>
 
 #include "KeyDisabler.h"
 
@@ -24,26 +26,39 @@ namespace touch {
 namespace V1_0 {
 namespace samsung {
 
+constexpr const char kControlPath[] =
+    "/sys/devices/virtual/sec/sec_touchkey/keypad_enable";
+
+KeyDisabler::KeyDisabler() {
+    mHasKeyDisabler = !access(kControlPath, F_OK);
+}
+
 bool KeyDisabler::isSupported() {
-    std::ofstream file("/sys/devices/virtual/sec/sec_touchkey/keypad_enable");
-    return file.good();
+    return mHasKeyDisabler;
 }
 
 // Methods from ::vendor::lineage::touch::V1_0::IKeyDisabler follow.
 Return<bool> KeyDisabler::isEnabled() {
-    std::ifstream file("/sys/devices/virtual/sec/sec_touchkey/keypad_enable");
-    int status = -1;
+    std::string buf;
 
-    if (file.is_open()) {
-        file >> status;
+    if (!mHasKeyDisabler) return false;
+
+    if (!android::base::ReadFileToString(kControlPath, &buf)) {
+        LOG(ERROR) << "Failed to read " << kControlPath;
+        return false;
     }
 
-    return file.good() && status == 0;
+    return std::stoi(android::base::Trim(buf)) == 0;
 }
 
 Return<bool> KeyDisabler::setEnabled(bool enabled) {
-    std::ofstream file("/sys/devices/virtual/sec/sec_touchkey/keypad_enable");
-    file << (enabled ? "0" : "1");
+    if (!mHasKeyDisabler) return false;
+
+    if (!android::base::WriteStringToFile((enabled ? "0" : "1"), kControlPath)) {
+        LOG(ERROR) << "Failed to write " << kControlPath;
+        return false;
+    }
+
     return true;
 }
 

@@ -37,7 +37,7 @@ using ::android::sp;
 
 class KeyDisabler : public IKeyDisabler {
   public:
-    KeyDisabler() = default;
+    KeyDisabler();
 
     bool isSupported();
 
@@ -46,6 +46,9 @@ class KeyDisabler : public IKeyDisabler {
     Return<bool> setEnabled(bool enabled) override;
 
     // Methods from ::android::hidl::base::V1_0::IBase follow.
+
+  private:
+    bool mHasKeyDisabler;
 };
 
 }  // namespace samsung
