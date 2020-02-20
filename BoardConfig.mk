@@ -62,9 +62,6 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 # Encryption
 TARGET_KEYMASTER_SKIP_WAITING_FOR_QSEE := true
 
-# Extended Filesystem Support
-TARGET_EXFAT_DRIVER := sdfat
-
 # HIDL
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/msm8974-common/manifest.xml
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
