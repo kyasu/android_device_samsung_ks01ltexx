@@ -25,22 +25,21 @@ Release Date | November 2013
 
 ***
 
-# For building LineageOS 16.0 
+# For building LineageOS 17.1
 ### create '.repo/local_manifests/roomservice.xml' with the following content:
 
 
 <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
 
-    <project name="LineageOS/android_hardware_samsung" path="hardware/samsung" remote="github" revision="lineage-16.0" />
-    <project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings" remote="github" revision="lineage-16.0" />
-    <project name="LineageOS/android_packages_apps_FlipFlap" path="packages/apps/FlipFlap" remote="github" revision="lineage-16.0" />
+    <project name="LineageOS/android_hardware_samsung" path="hardware/samsung" remote="github" />
+    <project name="LineageOS/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" />
 
-    <project name="LineageOS/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" revision="lineage-16.0" />
-    <project name="LineageOS/android_device_samsung_msm8974-common" path="device/samsung/msm8974-common" remote="github" revision="lineage-16.0" />
+    <project name="kyasu/android_device_samsung_msm8974-common" path="device/samsung/msm8974-common" remote="github" />
+    <project name="kyasu/android_kernel_samsung_msm8974" path="kernel/samsung/msm8974" remote="github" />
+    <project name="kyasu/android_device_samsung_ks01ltexx" path="device/samsung/ks01ltexx" remote="github" />
+    <project name="kyasu/android_vendor_samsung_ks01ltexx" path="vendor/samsung/ks01ltexx" remote="github" />
 
-    <project name="kyasu/android_kernel_samsung_msm8974" path="kernel/samsung/msm8974" remote="github" revision="lineage-16.0" />
-    <project name="kyasu/android_device_samsung_ks01ltexx" path="device/samsung/ks01ltexx" remote="github" revision="lineage-16.0" />
-    <project name="kyasu/android_vendor_samsung_ks01ltexx" path="vendor/samsung/ks01ltexx" remote="github" revision="lineage-16.0" />
+    <project name="TheMuppets/proprietary_vendor_samsung" path="vendor/samsung" remote="github" />
 
   </manifest>
