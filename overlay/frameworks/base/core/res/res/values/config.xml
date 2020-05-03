@@ -279,12 +279,6 @@
          format is UMTS|LTE|... -->
     <string translatable="false" name="config_radio_access_family">GSM|WCDMA|LTE</string>
 
-    <!-- Whether or not swipe up gesture is enabled by default -->
-    <bool name="config_swipe_up_gesture_default">true</bool>
-
-    <!-- Whether or not swipe up gesture's opt-in setting is available on this device -->
-    <bool name="config_swipe_up_gesture_setting_available">true</bool>
-
     <!-- reference volume index for music stream to limit headphone volume and display warning -->
     <integer name="config_safe_media_volume_index">15</integer>
 
