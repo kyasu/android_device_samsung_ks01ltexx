@@ -44,12 +44,6 @@ LZMA_RAMDISK_TARGETS := recovery
 TARGET_KERNEL_CONFIG := lineage_ks01lte_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8974
 
-# Use Snapdragon LLVM if available on build server
-TARGET_USE_SDCLANG := true
-#SDCLANG := true
-#SDCLANG_PATH := prebuilts/clang/linux-x86/host/sdclang-3.8/bin
-#SDCLANG_LTO_DEFS := device/qcom/common/sdllvm-lto-defs.mk
-
 # Enable SVELTE memory configuration
 MALLOC_SVELTE := true
 
