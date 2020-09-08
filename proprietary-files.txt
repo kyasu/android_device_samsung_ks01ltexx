@@ -366,9 +366,6 @@ vendor/lib/libqcsyncgesture.so
 # STLport (Camera/RIL) - local compile LineageOS/external/stlport@984b8432
 vendor/lib/libstlport.so|0be0a0d13e12fbf95d97d309dcbc25d3f969a469
 
-# Time services
--vendor/lib/libtime_genoff.so
-
 # Wi-Fi
 etc/wifi/bcmdhd_apsta.bin:vendor/etc/wifi/bcmdhd_apsta.bin
 etc/wifi/bcmdhd_apsta.bin_a0:vendor/etc/wifi/bcmdhd_apsta.bin_a0
