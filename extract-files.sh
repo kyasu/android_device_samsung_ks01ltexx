@@ -38,6 +38,9 @@ function blob_fixup() {
         vendor/lib/libsec-ril.so)
             patchelf --replace-needed libcutils.so libcutils-v29.so "${2}"
             ;;
+        vendor/lib/mediadrm/libwvdrmengine.so)
+            patchelf --replace-needed libprotobuf-cpp-lite.so libprotobuf-cpp-lite-v29.so "${2}"
+            ;;
     esac
 }
 
