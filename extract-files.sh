@@ -33,6 +33,14 @@ if [ ! -f "$HELPER" ]; then
 fi
 . "$HELPER"
 
+function blob_fixup() {
+    case "${1}" in
+        vendor/lib/libsec-ril.so)
+            patchelf --replace-needed libcutils.so libcutils-v29.so "${2}"
+            ;;
+    esac
+}
+
 if [ $# -eq 0 ]; then
     SRC=adb
 else
