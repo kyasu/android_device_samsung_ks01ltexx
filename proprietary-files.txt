@@ -311,11 +311,6 @@ vendor/firmware/bcm2079xB4_pre_firmware.ncd
 # Perf
 vendor/lib/libqti-perfd-client.so
 
-# Postprocessing
-vendor/lib/libdisp-aba.so
--vendor/lib/libmm-abl.so
-vendor/lib/libmm-abl-oem.so
-
 # Qualcomm
 vendor/lib/libxml.so
 
