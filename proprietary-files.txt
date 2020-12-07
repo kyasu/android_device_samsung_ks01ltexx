@@ -190,6 +190,9 @@ vendor/lib/libchromatix_imx135_vt_hd.so
 vendor/lib/libchromatix_s5k3l2xx_vt.so
 vendor/lib/libchromatix_s5k3l2xx_vt_hd.so
 
+# Camera (Samsung klte - G900FXXU1CSA1_G900FVIA1CSC1_VIA)
+vendor/lib/libmmjpeg.so|2b0bf12bbb7b63c84db77f922d18a4a335634930
+
 # Camera
 bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
 lib/hw/camera.msm8974.so:vendor/lib/hw/camera.vendor.msm8974.so
@@ -365,6 +368,9 @@ vendor/lib/libqcsyncgesture.so
 
 # STLport (Camera/RIL) - local compile LineageOS/external/stlport@984b8432
 vendor/lib/libstlport.so|0be0a0d13e12fbf95d97d309dcbc25d3f969a469
+
+# Time services (Samsung klte - G900FXXU1CSA1_G900FVIA1CSC1_VIA)
+vendor/lib/libtime_genoff.so|13eccbbd1fdbd8474247ed6552e3b31507636531
 
 # Wi-Fi
 etc/wifi/bcmdhd_apsta.bin:vendor/etc/wifi/bcmdhd_apsta.bin
