@@ -1,4 +1,4 @@
-Copyright 2017-2019 - The LineageOS Project
+Copyright 2017-2021 - The LineageOS Project
 Copyright 2015-2016 - The CyanogenMod Project
 
 # Device configuration for Samsung Galaxy S4 LTE-A (Snapdragon)
@@ -25,21 +25,20 @@ Release Date | November 2013
 
 ***
 
-# For building LineageOS 17.1
+# For building LineageOS 18.1
 ### create '.repo/local_manifests/roomservice.xml' with the following content:
 
 
-<?xml version="1.0" encoding="UTF-8"?>
+  <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
 
     <project name="LineageOS/android_hardware_samsung" path="hardware/samsung" remote="github" />
+    <project name="LineageOS/android_hardware_sony_timekeep" path="hardware/sony/timekeep" remote="github" />
     <project name="LineageOS/android_device_samsung_qcom-common" path="device/samsung/qcom-common" remote="github" />
+    <project name="LineageOS/android_device_samsung_msm8974-common" path="device/samsung/msm8974-common" remote="github" />
 
-    <project name="kyasu/android_device_samsung_msm8974-common" path="device/samsung/msm8974-common" remote="github" />
     <project name="kyasu/android_kernel_samsung_msm8974" path="kernel/samsung/msm8974" remote="github" />
     <project name="kyasu/android_device_samsung_ks01ltexx" path="device/samsung/ks01ltexx" remote="github" />
     <project name="kyasu/android_vendor_samsung_ks01ltexx" path="vendor/samsung/ks01ltexx" remote="github" />
-
-    <project name="TheMuppets/proprietary_vendor_samsung" path="vendor/samsung" remote="github" />
 
   </manifest>
