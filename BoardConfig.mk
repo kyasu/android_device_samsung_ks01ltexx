@@ -30,7 +30,7 @@ TARGET_FS_CONFIG_GEN += $(DEVICE_PATH)/config.fs
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 zcache.enabled=1 zcache.compressor=lz4
 ifeq ($(RECOVERY_VARIANT),twrp)
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 endif
