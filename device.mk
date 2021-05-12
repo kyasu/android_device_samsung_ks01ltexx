@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2017-2021 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -24,7 +25,7 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, device/samsung/ks01ltexx/msm8974-common/msm8974.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/samsung/ks01ltexx/ks01ltexx-vendor.mk)
+$(call inherit-product, vendor/samsung/ks01ltexx/ks01ltexx-vendor.mk)
 
 
 # Overlays
